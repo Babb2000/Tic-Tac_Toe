@@ -1,7 +1,9 @@
 $(document).ready(function(){
 
    
-    $("#slideHeader").slideDown(2000);
+    $("#slideHeader").fadeIn(2000, ()=>{
+        alert("Move your mouse under the question");
+    });
     
 
 
