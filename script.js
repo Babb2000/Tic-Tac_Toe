@@ -1,9 +1,24 @@
 $(document).ready(function(){
 
-      
+      function chatBox(){
+          let holder1 = document.createElement('div');
+          holder1.classList.add("buttonFlex2");
+
+          let holder2 = document.createElement('div');
+          holder2.classList.add("imageHolder");
+          
+          
+
+          let image = document.createElement('img');
+          image.src = "Images/SEEK LIFE. (200 × 200 px).png";
+          holder1.appendChild(holder2);
+          holder2.appendChild(image);
+          document.body.appendChild(holder1);
+      }
+
 
     $("#slideHeader").fadeIn(2000, ()=>{
-        alert("Move your mouse under the question");
+        chatBox();
     });
 
     function askAgain(){
