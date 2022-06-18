@@ -29,6 +29,7 @@ $(document).ready(function(){
         $("#slideHeader").slideUp();
         $("#no").remove();
         $("#yes").remove();
+        $(".buttonFlex2").remove();
     }
 
 
