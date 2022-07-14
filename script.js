@@ -16,6 +16,8 @@ $(document).ready(function(){
           document.body.appendChild(holder1);
       }
 
+
+      
       function makeBoard(){
         let firstDiv = document.createElement('div');
         firstDiv.setAttribute("id", "gameBoard");
@@ -38,6 +40,16 @@ $(document).ready(function(){
         let td7 = document.createElement('td');
         let td8 = document.createElement('td');
         let td9 = document.createElement('td');
+
+        td1.style.backgroundColor = "white";
+        td2.style.backgroundColor = "white";
+        td3.style.backgroundColor = "white";
+        td4.style.backgroundColor = "white";
+        td5.style.backgroundColor = "white";
+        td6.style.backgroundColor = "white";
+        td7.style.backgroundColor = "white";
+        td8.style.backgroundColor = "white";
+        td9.style.backgroundColor = "white"
 
     
         tr1.appendChild(td1);
@@ -85,8 +97,23 @@ $(document).ready(function(){
     document.getElementById("no").onclick = function() {askAgain()};
     document.getElementById("yes").onclick = function() {clearScreen()};
 
+    testX();
+
     
 
+    function testX (){
+       let holder =  document.getElementsByTagName("td")[0];
+        holder.addEventListener("click", function(){
+        
+            let marker = document.createElement('div');
+            let img = document.createElement('img');
+            img.src = "Images/Untitled design (2).png";
+            marker.appendChild(img);
+    
+            holder.appendChild(marker);
+        });
+    }
+    
 
 
 
