@@ -90,12 +90,17 @@ table{
 
 td{
     height: 50px;
-    border: 1px solid white;
+    background-color: white;
+
 }
 
-td:hover{
-    background-color: black;
+tr{
+    border: black;
 }
+
+
+
+
 
 .imageHolder{
     width: 500px;

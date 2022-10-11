@@ -41,17 +41,7 @@ $(document).ready(function(){
         let td8 = document.createElement('td');
         let td9 = document.createElement('td');
 
-        td1.style.backgroundColor = "white";
-        td2.style.backgroundColor = "white";
-        td3.style.backgroundColor = "white";
-        td4.style.backgroundColor = "white";
-        td5.style.backgroundColor = "white";
-        td6.style.backgroundColor = "white";
-        td7.style.backgroundColor = "white";
-        td8.style.backgroundColor = "white";
-        td9.style.backgroundColor = "white"
-
-    
+        
         tr1.appendChild(td1);
         tr1.appendChild(td2);
         tr1.appendChild(td3);
@@ -71,6 +61,8 @@ $(document).ready(function(){
         secDiv.appendChild(table);
         firstDiv.appendChild(secDiv);
         document.body.appendChild(firstDiv);
+
+       
 
 
       }
@@ -97,12 +89,13 @@ $(document).ready(function(){
     document.getElementById("no").onclick = function() {askAgain()};
     document.getElementById("yes").onclick = function() {clearScreen()};
 
-    testX();
-
+ 
+ 
     
 
-    function testX (){
+   function testX (){
        let holder =  document.getElementsByTagName("td")[0];
+       console.log(holder);
         holder.addEventListener("click", function(){
         
             let marker = document.createElement('div');
@@ -117,7 +110,7 @@ $(document).ready(function(){
 
 
 
-
+    testX();
 
 
 
