@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+
+    $("#slideHeader").fadeIn(2000, ()=>{
+        chatBox();
+    })
+
+
       function chatBox(){
           let holder1 = document.createElement('div');
           holder1.classList.add("buttonFlex2");
@@ -14,11 +20,18 @@ $(document).ready(function(){
           holder1.appendChild(holder2);
           holder2.appendChild(image);
           document.body.appendChild(holder1);
-      }
+        }
 
 
       
-      function makeBoard(){
+       function makeBoard(){
+
+        let holder = document.getElementsByClassName('buttonFlex2');
+        newArray = Array.from(holder);
+        console.log(newArray[0]);
+
+
+
         let firstDiv = document.createElement('div');
         firstDiv.setAttribute("id", "gameBoard");
         let secDiv = document.createElement('div');
@@ -62,15 +75,12 @@ $(document).ready(function(){
         firstDiv.appendChild(secDiv);
         document.body.appendChild(firstDiv);
 
+    }
+
+    
+
+
        
-
-
-      }
-
-
-    $("#slideHeader").fadeIn(2000, ()=>{
-        chatBox();
-    });
 
     function askAgain(){
         window.location.reload(); //Keep reloading page each time user clicks no
@@ -81,9 +91,6 @@ $(document).ready(function(){
         $("#no").remove();
         $("#yes").remove();
         $(".buttonFlex2").remove();
-
-        let holder = document.getElementsByClassName('imageHolder');
-        console.log(holder);
         
 
         makeBoard();
@@ -93,8 +100,31 @@ $(document).ready(function(){
     document.getElementById("no").onclick = function() {askAgain()};
     document.getElementById("yes").onclick = function() {clearScreen()};
 
+
+
+    //Store gameboard as an array inside a Gameboard Object
+
+    /*const gameboard = {
+        make
+        board: [td1, td2, td3, td4, td5, td6, td7, td8, td9],
+    }
+    */
+
+
+
+
+
+
+    function Player(name, marker) //Factory Function for each player
+    {
+        this.name = name;
+        this.marker = marker;
+        this.sayName = ()=> console.log(name, marker);
+    }
  
- 
+
+   
+
     
 
 
