@@ -16,8 +16,8 @@ $(document).ready(function(){
         holder2.appendChild(image);
         document.body.appendChild(holder1);
 
-        const now = setTimeout(removeChatBox(), 500);
-        now();
+        const now = setTimeout(removeChatBox(), 700);
+        now;
       }
 
 
@@ -31,6 +31,18 @@ $(document).ready(function(){
 
 
     
+      function userData(){
+          let holder = document.createElement('div');
+          holder.setAttribute("id","realGameBoard");
+          holder.style.backgroundColor = "white";
+
+          let getter = document.createElement('div');
+          getter.setAttribute("id", "gameBoard");
+          getter.appendChild(holder);
+
+          document.body.appendChild(getter);
+      }
+
       
 
       
@@ -97,7 +109,7 @@ $(document).ready(function(){
         $(".buttonFlex2").remove();
         
 
-        makeBoard();
+       userData();
     }
 
 
