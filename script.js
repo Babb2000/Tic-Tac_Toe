@@ -1,36 +1,40 @@
 $(document).ready(function(){
 
 
+    function chatBox(){
+        let holder1 = document.createElement('div');
+        holder1.classList.add("buttonFlex2");
+
+        let holder2 = document.createElement('div');
+        holder2.classList.add("imageHolder");
+        
+        
+
+        let image = document.createElement('img');
+        image.src = "Images/SEEK LIFE. (200 × 200 px).png";
+        holder1.appendChild(holder2);
+        holder2.appendChild(image);
+        document.body.appendChild(holder1);
+
+        const now = setTimeout(removeChatBox(), 500);
+        now();
+      }
+
+
+    function removeChatBox(){
+        $(".buttonFlex2").fadeOut(1000);
+    }
+
     $("#slideHeader").fadeIn(2000, ()=>{
         chatBox();
     })
 
 
-      function chatBox(){
-          let holder1 = document.createElement('div');
-          holder1.classList.add("buttonFlex2");
-
-          let holder2 = document.createElement('div');
-          holder2.classList.add("imageHolder");
-          
-          
-
-          let image = document.createElement('img');
-          image.src = "Images/SEEK LIFE. (200 × 200 px).png";
-          holder1.appendChild(holder2);
-          holder2.appendChild(image);
-          document.body.appendChild(holder1);
-        }
-
+    
+      
 
       
        function makeBoard(){
-
-        let holder = document.getElementsByClassName('buttonFlex2');
-        newArray = Array.from(holder);
-        console.log(newArray[0]);
-
-
 
         let firstDiv = document.createElement('div');
         firstDiv.setAttribute("id", "gameBoard");
@@ -119,9 +123,12 @@ $(document).ready(function(){
     {
         this.name = name;
         this.marker = marker;
-        this.sayName = ()=> console.log(name, marker);
     }
  
+
+    Player.prototype.sayName = function (){ //Good practice to define functions on prototypes
+        console.log(this.name, this.marker);
+    }
 
    
 
