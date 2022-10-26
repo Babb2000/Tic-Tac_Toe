@@ -48,7 +48,7 @@ $(document).ready(function(){
 
       function getMarker(){
           let holder = document.getElementById("realGameBoard");
-         
+        
           let image = document.createElement('img');
           image.src = "Images/X_Icon.png";
 
@@ -87,7 +87,18 @@ $(document).ready(function(){
           header.style.paddingTop = "25px";
           holder.appendChild(header);
           holder.appendChild(divHolder);
+
+          let xIcon = document.getElementById('moveMouse');
+          xIcon.onclick = makeSound();
+          
+          
       }
+
+        function makeSound(){
+          var sound1 = new Audio();
+          sound1.src ="Sounds/Mouse-OnClick.mp3";
+          sound1.play();
+        }
       
        function makeBoard(){
 
