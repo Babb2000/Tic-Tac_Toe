@@ -77,10 +77,14 @@ $(document).ready(function(){
     }
     
     function clearScreen(){
-        $("#slideHeader").slideUp();
+        $("#slideHeader").remove();
         $("#no").remove();
         $("#yes").remove();
         $(".buttonFlex2").remove();
+
+        let holder = document.getElementsByClassName('imageHolder');
+        console.log(holder);
+        
 
         makeBoard();
     }
@@ -93,24 +97,6 @@ $(document).ready(function(){
  
     
 
-   function testX (){
-       let holder =  document.getElementsByTagName("td")[0];
-       console.log(holder);
-        holder.addEventListener("click", function(){
-        
-            let marker = document.createElement('div');
-            let img = document.createElement('img');
-            img.src = "Images/Untitled design (2).png";
-            marker.appendChild(img);
-    
-            holder.appendChild(marker);
-        });
-    }
-    
-
-
-
-    testX();
 
 
 
