@@ -48,12 +48,12 @@ $(document).ready(function(){
 
       function getMarker(){
           let holder = document.getElementById("realGameBoard");
-          
+         
           let image = document.createElement('img');
           image.src = "Images/X_Icon.png";
 
           let image2 = document.createElement('img');
-          image2.src = "Image/O_Icon.png";
+          image2.src = "Images/O_Icon.png";
 
           let div2 = document.createElement('div');
           let div3 = document.createElement('div');
@@ -73,7 +73,8 @@ $(document).ready(function(){
           divHolder.style.height = "550px";
           divHolder.style.width = "700px";
           divHolder.style.display = "flex";
-          divHolder.style.justifyContent = "center";
+          divHolder.style.justifyContent = "space-evenly";
+
 
           divHolder.appendChild(div2);
           divHolder.appendChild(div3);
@@ -83,6 +84,7 @@ $(document).ready(function(){
           header.style.color = 'black';
           header.style.display = "block";
           header.style.fontSize = "60px";
+          header.style.paddingTop = "25px";
           holder.appendChild(header);
           holder.appendChild(divHolder);
       }
