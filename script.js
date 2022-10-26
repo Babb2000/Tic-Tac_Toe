@@ -31,23 +31,65 @@ $(document).ready(function(){
 
 
     
+
       function userData(){
           let holder = document.createElement('div');
           holder.setAttribute("id","realGameBoard");
           holder.style.backgroundColor = "white";
-
+          holder.style.borderRadius = "30px";
           let getter = document.createElement('div');
           getter.setAttribute("id", "gameBoard");
           getter.appendChild(holder);
-
           document.body.appendChild(getter);
+
+          //Create a way to ask user to pick a marker
+          getMarker()
       }
 
-      
+      function getMarker(){
+          let holder = document.getElementById("realGameBoard");
+          
+          let image = document.createElement('img');
+          image.src = "Images/X_Icon.png";
 
+          let image2 = document.createElement('img');
+          image2.src = "Image/O_Icon.png";
+
+          let div2 = document.createElement('div');
+          let div3 = document.createElement('div');
+
+          div2.style.height = "200px";
+          div2.style.wdith = "200px";
+          div2.setAttribute("id", "moveMouse")
+          div3.style.height = "200px";
+          div3.style.wdith = "200px";
+          div3.setAttribute("id", "moveMouse")
+
+          div2.appendChild(image);
+          div3.appendChild(image2);
+
+          let header = document.createElement('h1');
+          let divHolder = document.createElement('div');
+          divHolder.style.height = "550px";
+          divHolder.style.width = "700px";
+          divHolder.style.display = "flex";
+          divHolder.style.justifyContent = "center";
+
+          divHolder.appendChild(div2);
+          divHolder.appendChild(div3);
+
+          
+          header.innerHTML = "Player 1";
+          header.style.color = 'black';
+          header.style.display = "block";
+          header.style.fontSize = "60px";
+          holder.appendChild(header);
+          holder.appendChild(divHolder);
+      }
       
        function makeBoard(){
 
+        //Store gameboard as an array inside of a gameboard object
         let firstDiv = document.createElement('div');
         firstDiv.setAttribute("id", "gameBoard");
         let secDiv = document.createElement('div');
@@ -90,7 +132,6 @@ $(document).ready(function(){
         secDiv.appendChild(table);
         firstDiv.appendChild(secDiv);
         document.body.appendChild(firstDiv);
-
     }
 
     
