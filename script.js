@@ -101,8 +101,8 @@ $(document).ready(function(){
               console.log(e.target);
             $("#grabber2").remove();
             $("#grabber").remove();
-            const wait = setTimeout(getMarker2(e), 2000);
-            wait;
+            const wait = setTimeout(getMarker2, 1500);
+            
 
         })
 
@@ -110,7 +110,7 @@ $(document).ready(function(){
               
         }
 
-        function getMarker2(e){
+        function getMarker2(){
             let holder = document.getElementById("realGameBoard");
         
           let image = document.createElement('img');
@@ -158,17 +158,17 @@ $(document).ready(function(){
           var sound1 = new Audio("Sounds/Mouse-OnClick.mp3");
           $("#moveMouse2").on("click", function(){
               sound1.play();
-            
-              
           })
 
           $("#test").on("click", function(){
             $("#grabber2").fadeOut();
             $("#grabber").fadeOut();
-            console.log(e.target);
-        
-        })
 
+            let wait2 = setTimeout(clearScreen2, 1500);
+          })
+
+
+        
 
         }
         
@@ -243,7 +243,8 @@ $(document).ready(function(){
     }
 
     function clearScreen2(){
-        $("#realgameBoard").remove();
+        $("#realGameBoard").remove();
+        $("#gameboard").remove();
 
         makeBoard();
     }
