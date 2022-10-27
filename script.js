@@ -97,11 +97,12 @@ $(document).ready(function(){
               
           })
 
-          $("#moveMouse1").on("click", function(){
-            $("#grabber2").fadeOut();
-            $("#grabber").fadeOut();
-            const wait = setTimeout(getMarker2, 2000);
-            wait(e);
+          $("#moveMouse1").on("click", function(e){
+              console.log(e.target);
+            $("#grabber2").remove();
+            $("#grabber").remove();
+            const wait = setTimeout(getMarker2(e), 2000);
+            wait;
 
         })
 
@@ -117,6 +118,7 @@ $(document).ready(function(){
 
           let image2 = document.createElement('img');
           image2.src = "Images/O_Icon.png";
+          image2.setAttribute('id', "test");
 
           let div2 = document.createElement('div');
           let div3 = document.createElement('div');
@@ -160,11 +162,10 @@ $(document).ready(function(){
               
           })
 
-          $("#moveMouse2").on("click", function(){
-            alert('clicked');
-            //$("#grabber2").fadeOut();
-            //$("#grabber").fadeOut();
-            //console.log(e.currentTarget);
+          $("#test").on("click", function(){
+            $("#grabber2").fadeOut();
+            $("#grabber").fadeOut();
+            console.log(e.target);
         
         })
 
