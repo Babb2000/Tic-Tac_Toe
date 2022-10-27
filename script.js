@@ -43,7 +43,7 @@ $(document).ready(function(){
           document.body.appendChild(getter);
 
           //Create a way to ask user to pick a marker
-          getMarker()
+          getMarker();
       }
 
       function getMarker(){
@@ -60,10 +60,10 @@ $(document).ready(function(){
 
           div2.style.height = "200px";
           div2.style.wdith = "200px";
-          div2.setAttribute("id", "moveMouse")
+          div2.setAttribute("id", "moveMouse1")
           div3.style.height = "200px";
           div3.style.wdith = "200px";
-          div3.setAttribute("id", "moveMouse")
+          div3.setAttribute("id", "moveMouse2")
 
           div2.appendChild(image);
           div3.appendChild(image2);
@@ -74,6 +74,7 @@ $(document).ready(function(){
           divHolder.style.width = "700px";
           divHolder.style.display = "flex";
           divHolder.style.justifyContent = "space-evenly";
+          divHolder.setAttribute('id', "grabber");
 
 
           divHolder.appendChild(div2);
@@ -85,17 +86,84 @@ $(document).ready(function(){
           header.style.display = "block";
           header.style.fontSize = "60px";
           header.style.paddingTop = "25px";
+          header.setAttribute("id", "grabber2");
           holder.appendChild(header);
           holder.appendChild(divHolder);
 
           
           var sound1 = new Audio("Sounds/Mouse-OnClick.mp3");
-          $("#moveMouse").on("click", function(){
+          $("#moveMouse1").on("click", function(){
               sound1.play();
+              
           })
+
+          $("#moveMouse1").on("click", function(){
+            $("#grabber2").fadeOut();
+            $("#grabber").fadeOut();
+            getMarker2();
+        
+        })
+
+
               
         }
 
+        function getMarker2(){
+            let holder = document.getElementById("realGameBoard");
+        
+          let image = document.createElement('img');
+          image.src = "Images/X_Icon.png";
+
+          let image2 = document.createElement('img');
+          image2.src = "Images/O_Icon.png";
+
+          let div2 = document.createElement('div');
+          let div3 = document.createElement('div');
+
+          div2.style.height = "200px";
+          div2.style.wdith = "200px";
+          div2.setAttribute("id", "moveMouse1")
+          div3.style.height = "200px";
+          div3.style.wdith = "200px";
+          div3.setAttribute("id", "moveMouse2")
+
+          div2.appendChild(image);
+          div3.appendChild(image2);
+
+          let header = document.createElement('h1');
+          let divHolder = document.createElement('div');
+          divHolder.style.height = "550px";
+          divHolder.style.width = "700px";
+          divHolder.style.display = "flex";
+          divHolder.style.justifyContent = "space-evenly";
+          divHolder.setAttribute('id', "grabber");
+
+
+          divHolder.appendChild(div2);
+          divHolder.appendChild(div3);
+
+          
+          header.innerHTML = "Player 2";
+          header.style.color = 'black';
+          header.style.display = "block";
+          header.style.fontSize = "60px";
+          header.style.paddingTop = "25px";
+          header.setAttribute("id", "grabber2");
+          holder.appendChild(header);
+          holder.appendChild(divHolder);
+
+          var sound1 = new Audio("Sounds/Mouse-OnClick.mp3");
+          $("#moveMouse2").on("click", function(){
+              sound1.play();
+              
+          })
+
+          $("#moveMouse2").on("click", function(){
+            $("#grabber2").fadeOut();
+            $("#grabber").fadeOut();})
+
+
+        }
         
       
        function makeBoard(){
@@ -143,6 +211,9 @@ $(document).ready(function(){
         secDiv.appendChild(table);
         firstDiv.appendChild(secDiv);
         document.body.appendChild(firstDiv);
+
+        
+
     }
 
     
@@ -164,6 +235,12 @@ $(document).ready(function(){
        userData();
     }
 
+    function clearScreen2(){
+        $("#realgameBoard").remove();
+
+        makeBoard();
+    }
+
 
     document.getElementById("no").onclick = function() {askAgain()};
     document.getElementById("yes").onclick = function() {clearScreen()};
@@ -172,29 +249,15 @@ $(document).ready(function(){
 
     //Store gameboard as an array inside a Gameboard Object
 
-    /*const gameboard = {
-        make
-        board: [td1, td2, td3, td4, td5, td6, td7, td8, td9],
-    }
-    */
+    
+    
 
 
 
 
 
 
-    function Player(name, marker) //Factory Function for each player
-    {
-        this.name = name;
-        this.marker = marker;
-    }
- 
-
-    Player.prototype.sayName = function (){ //Good practice to define functions on prototypes
-        console.log(this.name, this.marker);
-    }
-
-   
+     
 
     
 

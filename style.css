@@ -121,7 +121,7 @@ tr{
     gap: 10px;
 }
 
-#moveMouse:hover{
+#moveMouse1:hover, #moveMouse2:hover{
     position: relative;
     top: 10px;
     left: 10px;
