@@ -88,17 +88,15 @@ $(document).ready(function(){
           holder.appendChild(header);
           holder.appendChild(divHolder);
 
-          let xIcon = document.getElementById('moveMouse');
-          xIcon.onclick = makeSound();
           
-          
-      }
-
-        function makeSound(){
-          var sound1 = new Audio();
-          sound1.src ="Sounds/Mouse-OnClick.mp3";
-          sound1.play();
+          var sound1 = new Audio("Sounds/Mouse-OnClick.mp3");
+          $("#moveMouse").on("click", function(){
+              sound1.play();
+          })
+              
         }
+
+        
       
        function makeBoard(){
 
