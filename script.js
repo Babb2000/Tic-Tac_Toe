@@ -98,7 +98,8 @@ $(document).ready(function(){
           })
 
           $("#moveMouse1").on("click", function(e){
-              console.log(e.target);
+              const player1 = new Player("X");
+              alert(`Get Ready Player 1, Your Weapon Of Choice Is ${player1.marker}`)
             $("#grabber2").remove();
             $("#grabber").remove();
             const wait = setTimeout(getMarker2, 1500);
@@ -161,6 +162,8 @@ $(document).ready(function(){
           })
 
           $("#test").on("click", function(){
+              const player2 = new Player("O");
+              alert(`Get Ready Player2 Your Weapon of Choice is ${player2.marker}`)
             $("#grabber2").fadeOut();
             $("#grabber").fadeOut();
 
@@ -257,7 +260,9 @@ $(document).ready(function(){
 
     //Store gameboard as an array inside a Gameboard Object
 
-    
+    function Player(marker){
+        this.marker = marker;
+    }
     
 
 
