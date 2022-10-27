@@ -100,15 +100,16 @@ $(document).ready(function(){
           $("#moveMouse1").on("click", function(){
             $("#grabber2").fadeOut();
             $("#grabber").fadeOut();
-            getMarker2();
-        
+            const wait = setTimeout(getMarker2, 2000);
+            wait(e);
+
         })
 
 
               
         }
 
-        function getMarker2(){
+        function getMarker2(e){
             let holder = document.getElementById("realGameBoard");
         
           let image = document.createElement('img');
@@ -155,12 +156,17 @@ $(document).ready(function(){
           var sound1 = new Audio("Sounds/Mouse-OnClick.mp3");
           $("#moveMouse2").on("click", function(){
               sound1.play();
+            
               
           })
 
           $("#moveMouse2").on("click", function(){
-            $("#grabber2").fadeOut();
-            $("#grabber").fadeOut();})
+            alert('clicked');
+            //$("#grabber2").fadeOut();
+            //$("#grabber").fadeOut();
+            //console.log(e.currentTarget);
+        
+        })
 
 
         }
@@ -212,7 +218,7 @@ $(document).ready(function(){
         firstDiv.appendChild(secDiv);
         document.body.appendChild(firstDiv);
 
-        
+
 
     }
 
