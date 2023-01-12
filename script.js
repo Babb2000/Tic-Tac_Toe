@@ -97,17 +97,26 @@ $(document).ready(function(){
               
           })
 
-          $("#moveMouse1").on("click", function(e){
-              const player1 = new Player("X");
-              alert(`Get Ready Player 1, Your Weapon Of Choice Is ${player1.marker}`)
-            $("#grabber2").remove();
-            $("#grabber").remove();
-            const wait = setTimeout(getMarker2, 1500);
-            
+          
+            $("#moveMouse1").on("click", function(){
+                let marker1 = "X";
 
-        })
+            const player1 = Playermarker('Player1', marker1);
+            alert(player1.getName());
+            alert(player1.getMarker());
+                    
+          })
 
 
+
+
+        /*const player1 = new Player("X");
+                alert(`Get Ready Player 1, Your Weapon Of Choice Is ${marker1}`)
+                $("#grabber2").remove();
+                $("#grabber").remove();
+                const wait = setTimeout(getMarker2, 1500);
+
+*/
               
         }
 
@@ -161,15 +170,18 @@ $(document).ready(function(){
               sound1.play();
           })
 
-          $("#test").on("click", function(){
-              const player2 = new Player("O");
-              alert(`Get Ready Player2 Your Weapon of Choice is ${player2.marker}`)
+          $("#moveMouse2").on("click", function(){
+              let marker2 = "O";
+          
+          })
+
+          const player2 = new Player("O");
+              alert(`Get Ready Player2 Your Weapon of Choice is ${marker2}`)
             $("#grabber2").fadeOut();
             $("#grabber").fadeOut();
 
             let wait2 = setTimeout(clearScreen2, 1500);
-          })
-
+          
 
         
 
@@ -260,11 +272,17 @@ $(document).ready(function(){
 
     //Store gameboard as an array inside a Gameboard Object
 
-    function Player(marker){
+    /*function Player(marker){
         this.marker = marker;
-    }
+    }*/
     
 
+    const Playermarker = (name, marker) => { //Playermarker factory function which returns an object 
+        const getName = () => name;
+        const getMarker = () => marker;
+
+        return {getName, getMarker};
+    }
 
 
 
