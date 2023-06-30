@@ -1,80 +1,9 @@
 $(document).ready(function(){
 
 
-      function userData(){
-          let holder = document.createElement('div');
-          holder.setAttribute("id","realGameBoard");
-          holder.style.backgroundColor = "white";
-          holder.style.borderRadius = "30px";
-          let getter = document.createElement('div');
-          getter.setAttribute("id", "gameBoard");
-          getter.appendChild(holder);
-          document.body.appendChild(getter);
+      
 
-          //Create a way to ask user to pick a marker
-          getMarker();
-      }
-
-      function getMarker(){
-          let holder = document.getElementById("realGameBoard");
-        
-          let image = document.createElement('img');
-          image.src = "Images/X_Icon.png";
-
-          let image2 = document.createElement('img');
-          image2.src = "Images/O_Icon.png";
-
-          let div2 = document.createElement('div');
-          let div3 = document.createElement('div');
-
-          div2.style.height = "200px";
-          div2.style.wdith = "200px";
-          div2.setAttribute("id", "moveMouse1")
-          div3.style.height = "200px";
-          div3.style.wdith = "200px";
-          div3.setAttribute("id", "moveMouse2")
-
-          div2.appendChild(image);
-          div3.appendChild(image2);
-
-          let header = document.createElement('h1');
-          let divHolder = document.createElement('div');
-          divHolder.style.height = "550px";
-          divHolder.style.width = "700px";
-          divHolder.style.display = "flex";
-          divHolder.style.justifyContent = "space-evenly";
-          divHolder.setAttribute('id', "grabber");
-
-
-          divHolder.appendChild(div2);
-          divHolder.appendChild(div3);
-
-          
-          header.innerHTML = "Player 1";
-          header.style.color = 'black';
-          header.style.display = "block";
-          header.style.fontSize = "60px";
-          header.style.paddingTop = "25px";
-          header.setAttribute("id", "grabber2");
-          holder.appendChild(header);
-          holder.appendChild(divHolder);
-
-          
-          var sound1 = new Audio("Sounds/Mouse-OnClick.mp3");
-          $("#moveMouse1").on("click", function(){
-              sound1.play();
-              
-          })
-
-          
-            $("#moveMouse1").on("click", function(){
-                let marker1 = "X";
-
-            const player1 = Playermarker('Player1', marker1);
-            alert(player1.getName());
-            alert(player1.getMarker());
-                    
-          })
+      
 
 
 
@@ -87,74 +16,9 @@ $(document).ready(function(){
 
 */
               
-        }
-
-        function getMarker2(){
-            let holder = document.getElementById("realGameBoard");
-        
-          let image = document.createElement('img');
-          image.src = "Images/X_Icon.png";
-
-          let image2 = document.createElement('img');
-          image2.src = "Images/O_Icon.png";
-          image2.setAttribute('id', "test");
-
-          let div2 = document.createElement('div');
-          let div3 = document.createElement('div');
-
-          div2.style.height = "200px";
-          div2.style.wdith = "200px";
-          div2.setAttribute("id", "moveMouse1")
-          div3.style.height = "200px";
-          div3.style.wdith = "200px";
-          div3.setAttribute("id", "moveMouse2")
-
-          div2.appendChild(image);
-          div3.appendChild(image2);
-
-          let header = document.createElement('h1');
-          let divHolder = document.createElement('div');
-          divHolder.style.height = "550px";
-          divHolder.style.width = "700px";
-          divHolder.style.display = "flex";
-          divHolder.style.justifyContent = "space-evenly";
-          divHolder.setAttribute('id', "grabber");
-
-
-          divHolder.appendChild(div2);
-          divHolder.appendChild(div3);
-
-          
-          header.innerHTML = "Player 2";
-          header.style.color = 'black';
-          header.style.display = "block";
-          header.style.fontSize = "60px";
-          header.style.paddingTop = "25px";
-          header.setAttribute("id", "grabber2");
-          holder.appendChild(header);
-          holder.appendChild(divHolder);
-
-          var sound1 = new Audio("Sounds/Mouse-OnClick.mp3");
-          $("#moveMouse2").on("click", function(){
-              sound1.play();
-          })
-
-          $("#moveMouse2").on("click", function(){
-              let marker2 = "O";
-          
-          })
-
-          const player2 = new Player("O");
-              alert(`Get Ready Player2 Your Weapon of Choice is ${marker2}`)
-            $("#grabber2").fadeOut();
-            $("#grabber").fadeOut();
-
-            let wait2 = setTimeout(clearScreen2, 1500);
-          
-
         
 
-        }
+        
         
       
        function makeBoard(){
@@ -212,19 +76,8 @@ $(document).ready(function(){
 
        
 
-    function askAgain(){
-        window.location.reload(); //Keep reloading page each time user clicks no
-    }
     
-    function clearScreen(){
-        $("#slideHeader").remove();
-        $("#no").remove();
-        $("#yes").remove();
-        $(".buttonFlex2").remove();
-        
-
-       userData();
-    }
+    
 
     function clearScreen2(){
         $("#realGameBoard").remove();
@@ -234,9 +87,7 @@ $(document).ready(function(){
     }
 
 
-    document.getElementById("no").onclick = function() {askAgain()};
-    document.getElementById("yes").onclick = function() {clearScreen()};
-
+   
 
 
     const Playermarker = (name, marker) => { //Playermarker factory function which returns an object 
@@ -285,6 +136,172 @@ let ticTacToe = (()=>{
             $("#slideHeader").fadeIn(2000, ()=>{
                 chatBox();
             })
+
+            function askAgain(){
+                window.location.reload(); //Keep reloading page each time user clicks no
+            }
+            
+
+            document.getElementById("no").onclick = function() {askAgain()};
+            document.getElementById("yes").onclick = function() {clearScreen()};
+        
+
+            function clearScreen(){
+                $("#slideHeader").remove();
+                $("#no").remove();
+                $("#yes").remove();
+                $(".buttonFlex2").remove();
+                
+        
+               userData();
+            }
+
+            function userData(){
+                let holder = document.createElement('div');
+                holder.setAttribute("id","realGameBoard");
+                holder.style.backgroundColor = "white";
+                holder.style.borderRadius = "30px";
+                let getter = document.createElement('div');
+                getter.setAttribute("id", "gameBoard");
+                getter.appendChild(holder);
+                document.body.appendChild(getter);
+      
+                //Create a way to ask user to pick a marker
+                getMarker();
+            }
+
+            function getMarker(){
+                let holder = document.getElementById("realGameBoard");
+              
+                let image = document.createElement('img');
+                image.src = "Images/X_Icon.png";
+      
+                let image2 = document.createElement('img');
+                image2.src = "Images/O_Icon.png";
+      
+                let div2 = document.createElement('div');
+                let div3 = document.createElement('div');
+      
+                div2.style.height = "200px";
+                div2.style.wdith = "200px";
+                div2.setAttribute("id", "moveMouse1")
+                div3.style.height = "200px";
+                div3.style.wdith = "200px";
+                div3.setAttribute("id", "moveMouse2")
+      
+                div2.appendChild(image);
+                div3.appendChild(image2);
+      
+                let header = document.createElement('h1');
+                let divHolder = document.createElement('div');
+                divHolder.style.height = "550px";
+                divHolder.style.width = "700px";
+                divHolder.style.display = "flex";
+                divHolder.style.justifyContent = "space-evenly";
+                divHolder.setAttribute('id', "grabber");
+      
+      
+                divHolder.appendChild(div2);
+                divHolder.appendChild(div3);
+      
+                
+                header.innerHTML = "Player 1";
+                header.style.color = 'black';
+                header.style.display = "block";
+                header.style.fontSize = "60px";
+                header.style.paddingTop = "25px";
+                header.setAttribute("id", "grabber2");
+                holder.appendChild(header);
+                holder.appendChild(divHolder);
+      
+                
+                var sound1 = new Audio("Sounds/Mouse-OnClick.mp3");
+                $("#moveMouse1").on("click", function(){
+                    sound1.play();
+                    
+                })
+      
+                
+                  $("#moveMouse1").on("click", function(){
+                      let marker1 = "X";
+      
+                  const player1 = Playermarker('Player1', marker1);
+                  alert(player1.getName());
+                  alert(player1.getMarker());
+                          
+                })
+            }
+
+            function getMarker2(){
+                let holder = document.getElementById("realGameBoard");
+            
+              let image = document.createElement('img');
+              image.src = "Images/X_Icon.png";
+    
+              let image2 = document.createElement('img');
+              image2.src = "Images/O_Icon.png";
+              image2.setAttribute('id', "test");
+    
+              let div2 = document.createElement('div');
+              let div3 = document.createElement('div');
+    
+              div2.style.height = "200px";
+              div2.style.wdith = "200px";
+              div2.setAttribute("id", "moveMouse1")
+              div3.style.height = "200px";
+              div3.style.wdith = "200px";
+              div3.setAttribute("id", "moveMouse2")
+    
+              div2.appendChild(image);
+              div3.appendChild(image2);
+    
+              let header = document.createElement('h1');
+              let divHolder = document.createElement('div');
+              divHolder.style.height = "550px";
+              divHolder.style.width = "700px";
+              divHolder.style.display = "flex";
+              divHolder.style.justifyContent = "space-evenly";
+              divHolder.setAttribute('id', "grabber");
+    
+    
+              divHolder.appendChild(div2);
+              divHolder.appendChild(div3);
+    
+              
+              header.innerHTML = "Player 2";
+              header.style.color = 'black';
+              header.style.display = "block";
+              header.style.fontSize = "60px";
+              header.style.paddingTop = "25px";
+              header.setAttribute("id", "grabber2");
+              holder.appendChild(header);
+              holder.appendChild(divHolder);
+    
+              var sound1 = new Audio("Sounds/Mouse-OnClick.mp3");
+              $("#moveMouse2").on("click", function(){
+                  sound1.play();
+              })
+    
+              $("#moveMouse2").on("click", function(){
+                  let marker2 = "O";
+              
+              })
+    
+              const player2 = new Player("O");
+                  alert(`Get Ready Player2 Your Weapon of Choice is ${marker2}`)
+                $("#grabber2").fadeOut();
+                $("#grabber").fadeOut();
+    
+                let wait2 = setTimeout(clearScreen2, 1500);
+              
+    
+            
+    
+            }
+
+
+
+
         })();
 
         return {message};
