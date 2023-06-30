@@ -239,13 +239,6 @@ $(document).ready(function(){
 
 
 
-    //Store gameboard as an array inside a Gameboard Object
-
-    /*function Player(marker){
-        this.marker = marker;
-    }*/
-    
-
     const Playermarker = (name, marker) => { //Playermarker factory function which returns an object 
         const getName = () => name;
         const getMarker = () => marker;
@@ -254,43 +247,71 @@ $(document).ready(function(){
     }
 
 
+
+
+
+//Create a Module to control the Gameflow
+let ticTacToe = (()=>{
+
 //Create a module that displays the start up message and transitions to the "getMarker" UI
+    let openingMessages = (()=>{
 
-let openingMessages = (()=>{
-
-    let message = (()=>{
+        let message = (()=>{
+            
+            function chatBox(){
+                let holder1 = document.createElement('div');
+                holder1.classList.add("buttonFlex2");
         
-        function chatBox(){
-            let holder1 = document.createElement('div');
-            holder1.classList.add("buttonFlex2");
-    
-            let holder2 = document.createElement('div');
-            holder2.classList.add("imageHolder");
-            
-            
-    
-            let image = document.createElement('img');
-            image.src = "Images/SEEK LIFE. (200 × 200 px).png";
-            holder1.appendChild(holder2);
-            holder2.appendChild(image);
-            document.body.appendChild(holder1);
-    
-            const now = setTimeout(removeChatBox(), 700);
-            now;
-          }
-    
-    
-        function removeChatBox(){
-            $(".buttonFlex2").fadeOut(1000);
-        }
-    
-        $("#slideHeader").fadeIn(2000, ()=>{
-            chatBox();
-        })
+                let holder2 = document.createElement('div');
+                holder2.classList.add("imageHolder");
+                
+                
+        
+                let image = document.createElement('img');
+                image.src = "Images/SEEK LIFE. (200 × 200 px).png";
+                holder1.appendChild(holder2);
+                holder2.appendChild(image);
+                document.body.appendChild(holder1);
+        
+                const now = setTimeout(removeChatBox(), 700);
+                now;
+            }
+        
+        
+            function removeChatBox(){
+                $(".buttonFlex2").fadeOut(1000);
+            }
+        
+            $("#slideHeader").fadeIn(2000, ()=>{
+                chatBox();
+            })
+        })();
+
+        return {message};
     })();
 
-      return {message};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return{openingMessages};
 })();
+
+
+ticTacToe.openingMessages();
+
+
 
 
 openingMessages.message();
