@@ -1,37 +1,6 @@
 $(document).ready(function(){
 
 
-    function chatBox(){
-        let holder1 = document.createElement('div');
-        holder1.classList.add("buttonFlex2");
-
-        let holder2 = document.createElement('div');
-        holder2.classList.add("imageHolder");
-        
-        
-
-        let image = document.createElement('img');
-        image.src = "Images/SEEK LIFE. (200 × 200 px).png";
-        holder1.appendChild(holder2);
-        holder2.appendChild(image);
-        document.body.appendChild(holder1);
-
-        const now = setTimeout(removeChatBox(), 700);
-        now;
-      }
-
-
-    function removeChatBox(){
-        $(".buttonFlex2").fadeOut(1000);
-    }
-
-    $("#slideHeader").fadeIn(2000, ()=>{
-        chatBox();
-    })
-
-
-    
-
       function userData(){
           let holder = document.createElement('div');
           holder.setAttribute("id","realGameBoard");
@@ -285,9 +254,46 @@ $(document).ready(function(){
     }
 
 
+//Create a module that displays the start up message and transitions to the "getMarker" UI
+
+let openingMessages = (()=>{
+
+    let message = (()=>{
+        
+        function chatBox(){
+            let holder1 = document.createElement('div');
+            holder1.classList.add("buttonFlex2");
+    
+            let holder2 = document.createElement('div');
+            holder2.classList.add("imageHolder");
+            
+            
+    
+            let image = document.createElement('img');
+            image.src = "Images/SEEK LIFE. (200 × 200 px).png";
+            holder1.appendChild(holder2);
+            holder2.appendChild(image);
+            document.body.appendChild(holder1);
+    
+            const now = setTimeout(removeChatBox(), 700);
+            now;
+          }
+    
+    
+        function removeChatBox(){
+            $(".buttonFlex2").fadeOut(1000);
+        }
+    
+        $("#slideHeader").fadeIn(2000, ()=>{
+            chatBox();
+        })
+    })();
+
+      return {message};
+})();
 
 
-
+openingMessages.message();
      
 
     
