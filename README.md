@@ -4,14 +4,18 @@ During this project I will be creating a simple Tic-Tac-Toe game that you can pl
 
 ## Topics to be applied
 
-- [ ] Objects
-- [ ] Factory Functions
-- [ ] Module Pattern
-- [ ] Closure
-- [ ] This keyword
-- [ ] Algorithms
-- [ ] DOM manipulation
-- [ ] Prototypal ineritance
-- [ ] Inheritance with Factories
-- [ ] Encapsulation
+- [ ] *Objects*
+- [ ] *Factory Functions*
+- [ ] *Module Pattern*
+- [ ] *Closure*
+- [ ] *This keyword*
+- [ ] *Algorithms*
+- [ ] *DOM manipulation*
+- [ ] *Prototypal ineritance*
+- [ ] *Inheritance with Factories*
+- [ ] *Encapsulation*
+
+### Inspiration
+
+![title] (Images/TTT_GameInspiration.png)
 
