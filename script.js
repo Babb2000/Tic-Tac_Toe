@@ -79,13 +79,7 @@ $(document).ready(function(){
     
     
 
-    function clearScreen2(){
-        $("#realGameBoard").remove();
-        $("#gameboard").remove();
-
-        makeBoard();
-    }
-
+    
 
    
 
@@ -156,6 +150,14 @@ let ticTacToe = (()=>{
                userData();
             }
 
+            function clearScreen2(){
+                $("#realGameBoard").remove();
+                $("#gameboard").remove();
+        
+                makeBoard();
+            }
+        
+
             function userData(){
                 let holder = document.createElement('div');
                 holder.setAttribute("id","realGameBoard");
@@ -208,7 +210,7 @@ let ticTacToe = (()=>{
                 header.innerHTML = "Player 1";
                 header.style.color = 'black';
                 header.style.display = "block";
-                header.style.fontSize = "60px";
+                header.style.fontSize = "100px";
                 header.style.paddingTop = "25px";
                 header.setAttribute("id", "grabber2");
                 holder.appendChild(header);
