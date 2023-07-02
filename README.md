@@ -17,5 +17,5 @@ During this project I will be creating a simple Tic-Tac-Toe game that you can pl
 
 ### Inspiration
 
-![Game Board](TTT_GameInspiration.png);
+![Game Board](Images/TTT_GameInspiration.png);
 
