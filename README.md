@@ -15,7 +15,7 @@ During this project I will be creating a simple Tic-Tac-Toe game that you can pl
 - [ ] *Inheritance with Factories*
 - [ ] *Encapsulation*
 
-### Inspiration
+### Game Prototype
 
 ![Game Board](Images/codePen_mockImage.png);
 
