@@ -1,26 +1,5 @@
 $(document).ready(function(){
 
-
-      
-
-      
-
-
-
-
-        /*const player1 = new Player("X");
-                alert(`Get Ready Player 1, Your Weapon Of Choice Is ${marker1}`)
-                $("#grabber2").remove();
-                $("#grabber").remove();
-                const wait = setTimeout(getMarker2, 1500);
-
-*/
-              
-        
-
-        
-        
-      
        function makeBoard(){
 
         //Store gameboard as an array inside of a gameboard object
@@ -154,7 +133,7 @@ let ticTacToe = (()=>{
                 $("#realGameBoard").remove();
                 $("#gameboard").remove();
         
-                makeBoard();
+                
             }
         
 
@@ -167,7 +146,9 @@ let ticTacToe = (()=>{
                 getter.setAttribute("id", "gameBoard");
                 getter.appendChild(holder);
                 document.body.appendChild(getter);
-      
+
+
+                
                 //Create a way to ask user to pick a marker
                 getMarker();
             }
@@ -232,6 +213,8 @@ let ticTacToe = (()=>{
                   alert(player1.getMarker());
                           
                 })
+
+                getMarker2();
             }
 
             function getMarker2(){
@@ -296,7 +279,7 @@ let ticTacToe = (()=>{
     
                 let wait2 = setTimeout(clearScreen2, 1500);
               
-    
+              makeBoard();
             
     
             }
@@ -312,6 +295,7 @@ let ticTacToe = (()=>{
 
 
 
+    
 
 
 
