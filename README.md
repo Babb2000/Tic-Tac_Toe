@@ -18,4 +18,5 @@ During this project, I will be creating a simple Tic-Tac-Toe game that you can p
 ### Game Prototype
 
 ![Game Board](Images/codePen_mockImage.png)
+[Link to CodePen Rough Draft](https://codepen.io/babb2000/pen/oNQwvje)
 
