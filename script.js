@@ -1,15 +1,15 @@
 
-function IntroController(){
 
-
-
-
-
-
-
-
-
-}
+//Event listener to gather user selection
+const button = document.querySelector('button');
+button.addEventListener("click", ()=>{
+  if(button.className === "X"){
+    alert("You have selected the weapon X");
+  }
+  if(button.className === "O"){
+    alert("You have selected the weapon O");
+  }
+})
 
 
 
@@ -49,5 +49,7 @@ function clickElement(e){
 }
 
 const createBoard = () =>{
-    
+
 }
+
+
