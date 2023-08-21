@@ -4,17 +4,27 @@ function IntroController(){
   const userSelection = ()=> {
     const choiceX = "X";
     const choiceO = "O";
-    const buttonX = document.querySelector('.X');
-  buttonX.addEventListener("click", ()=>{
-    return choiceX;
-  })
-    const buttonO = document.querySelector(".O");
-    buttonO.addEventListener("click", ()=>{
-      return choiceO;
-    })
-  }
   
-  let catchChoice = userSelection();
+    const buttonX = document.querySelector(".X");
+    const buttonO = document.querySelector(".O");
+
+    return new Promise((resolve, reject) =>{
+      buttonX.addEventListener("click", ()=>{
+        resolve(choiceX);
+      })
+    
+
+    buttonO.addEventListener("click", ()=> {
+      resolve(choiceO);
+    })
+  })
+}
+  
+  
+userSelection().then((choice) =>{
+  let catchChoice = choice;
+  playerAssign(catchChoice);
+})
   
   
   
