@@ -42,6 +42,7 @@ const clearScreen = ()=> {
 const checkBothButtonsClicked = ()=>{
   if(button1Clicked && button2Clicked){
     clearScreen();
+    makeBoard();
   }
 }
 
@@ -78,10 +79,17 @@ const checkBothButtonsClicked = ()=>{
 IntroController();
 
 function makeBoard(){
+
+  const body = document.body;
+  body.style.backgroundColor = "black";
+
   for(let i = 0; i < 10; i++){
     const div = document.createElement("div");
     div.classList.add('edit');
+    body.appendChild(div);
   }
+
+
 
   let grabber = document.querySelector("div").addEventListener("click", clickElement);
 
