@@ -1,27 +1,29 @@
 
 
 function IntroController(){
-
+  const choiceX = "X";
+  const choiceO = "O";
 
   const userSelection = ()=> {
-    const choiceX = "X";
-    const choiceO = "O";
+  
   
     const buttonX = document.querySelector(".X");
     const buttonO = document.querySelector(".O");
 
-    return new Promise((resolve, reject) =>{
-      buttonX.addEventListener("click", ()=>{
-        resolve(choiceX);
-      })
-    
-
-    buttonO.addEventListener("click", ()=> {
-      resolve(choiceO);
-    })
-  })
+   
+   buttonX.addEventListener("click", buttonXClick);
+   buttonO.addEventListener("click", buttonOClick);
 }
   
+const buttonXClick = () =>{
+  playerAssign(choiceX);
+}
+
+const buttonOClick = () =>{
+  playerAssign(choiceO);
+}
+
+
   
 userSelection().then((choice) =>{
   let catchChoice = choice;
@@ -45,6 +47,7 @@ userSelection().then((choice) =>{
   playerAssign(catchChoice);
 }
 
+
 IntroController();
 
 function makeBoard(){
@@ -52,8 +55,6 @@ function makeBoard(){
     const div = document.createElement("div");
     div.classList.add('edit');
   }
-
-  
 
   let grabber = document.querySelector("div").addEventListener("click", clickElement);
 
