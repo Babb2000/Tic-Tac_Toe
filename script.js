@@ -1,10 +1,26 @@
 
 
 function IntroController(){
+
   const choiceX = "X";
   const choiceO = "O";
+  let button1Clicked = false;
+  let button2Clicked = false;
 
-  const userSelection = ()=> {
+
+  const buttonXClick = () =>{
+    playerAssign(choiceX);
+    button1Clicked = true;
+    checkBothButtonsClicked();
+  }
+  
+  const buttonOClick = () =>{
+    playerAssign(choiceO);
+    button2Clicked = true;
+    checkBothButtonsClicked();
+  }
+
+  function userSelection(){
   
   
     const buttonX = document.querySelector(".X");
@@ -15,39 +31,50 @@ function IntroController(){
    buttonO.addEventListener("click", buttonOClick);
 }
   
-const buttonXClick = () =>{
-  playerAssign(choiceX);
+const clearScreen = ()=> {
+  let firstElem = document.getElementsByClassName("X")[0];
+  let secondElem = document.getElementsByClassName("O")[0];
+
+  firstElem.remove();
+  secondElem.remove();
+}
+  
+const checkBothButtonsClicked = ()=>{
+  if(button1Clicked && button2Clicked){
+    clearScreen();
+  }
 }
 
-const buttonOClick = () =>{
-  playerAssign(choiceO);
-}
 
-
-  
-userSelection().then((choice) =>{
-  let catchChoice = choice;
-  playerAssign(catchChoice);
-})
-  
-  
   
   //Factory function to assign player name and token
-  function playerAssign(choice){
-  
-  const player = {
-    choice: choice,
-  }
+  const playerAssign = (choice)=>{
 
-  console.log(player);
+ 
+    const player = {
+      choice: choice,
+    }
+
+    
   
-  return player;
+
+
+    
+  
+  return player
   }
   
-  playerAssign(catchChoice);
+  userSelection();
+  
+
+
+
+
+
+
+
+
 }
-
-
 IntroController();
 
 function makeBoard(){
