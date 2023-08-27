@@ -38,11 +38,14 @@ function IntroController(){
   }
   
   const clearScreen = ()=> {
+    console.log("Inside clearScreen");
   let firstElem = document.getElementsByClassName("X")[0];
   let secondElem = document.getElementsByClassName("O")[0];
 
   firstElem.remove();
   secondElem.remove();
+
+  displayBoard();
   } 
   
   const checkBothButtonsClicked = ()=>{
@@ -56,7 +59,6 @@ userSelection();
 }
 
 IntroController();
-
 
 
 
@@ -74,6 +76,8 @@ function Gameboard(){
     }
   }
 
+ 
+
 
   const getBoard = ()=> board;
   
@@ -81,7 +85,6 @@ function Gameboard(){
   return{
     getBoard
   }
-
 }
 
 
@@ -93,9 +96,18 @@ function Cell(){
   }
 
   const getValue = ()=> value;
+
+  const addDiv = ()=>{
+    const div = document.createElement("div");
+    div.classList.add("edit");
+    div.style.display = "block";
+    return div;
+  }
+
   return{
     addMarker,
-    getValue
+    getValue,
+    addDiv
   }
 }
 
@@ -148,6 +160,24 @@ function Toggleboard(){
 }
 
 
+
+
+
+function displayBoard(){
+  console.log("Inside display board");
+  const board = Gameboard();
+  const realBoard = board.getBoard();
+  const doc = document.body;
+
+  
+  realBoard.forEach((row)=>{
+    row.forEach((cell, index)=>{
+      doc.appendChild(cell.addDiv());
+    
+    })
+  })
+
+}
 
 
 
