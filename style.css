@@ -74,7 +74,7 @@
     justify-content: center;
     align-items: center;
     border: 2px solid white;
-    box-shadow: 10px 5px 5px white; 
+    box-shadow: 10px 5px 5px #BBF9F8; 
   }
   
   .flex{
@@ -84,6 +84,7 @@
     border: 3px solid #BBF9F8;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
+    box-shadow: 10px 20px 3px #BBF9F8;
   }
 
   .flex2{
