@@ -60,6 +60,34 @@ userSelection();
 
 IntroController();
 
+const addXmarker = (e)=>{
+  console.log(e);
+  console.log("Inside addXmarker");
+  let current = e.target;
+    
+
+  let holder = document.createElement('div');
+  
+  
+    
+  let p = document.createElement('p');
+  let markerX = document.createTextNode("X");
+    
+  p.appendChild(markerX);
+  p.style.fontSize = "20px";
+  p.style.textShadow = "1px 1px 4px white";
+  p.style.textAlign = "center";
+    
+  holder.classList.add("flex2");
+  holder.appendChild(p);
+  
+  current.appendChild(holder);
+  }
+const grabber = document.querySelector("div").addEventListener("click", addXmarker);
+
+  
+
+
 
 
 //Constructor function to create the board 
@@ -80,6 +108,8 @@ function Gameboard(){
 
 
   const getBoard = ()=> board;
+
+
   
 
   return{
@@ -113,7 +143,10 @@ function Cell(){
 
 
 function Toggleboard(){
+  
+
   const addXmarker = (e)=>{
+  
   let current = e.target;
     
 
@@ -155,7 +188,8 @@ function Toggleboard(){
 
   return{
     addXmarker,
-    addOmarker
+    addOmarker,
+    
   }
 }
 
@@ -164,6 +198,7 @@ function Toggleboard(){
 
 
 function displayBoard(){
+
   console.log("Inside display board");
   const board = Gameboard();
   const realBoard = board.getBoard();
@@ -171,17 +206,23 @@ function displayBoard(){
   const containerDiv = document.querySelector(".flex");
   containerDiv.style.display = "grid";
   doc.appendChild(containerDiv);
-
   
   realBoard.forEach((row)=>{
     row.forEach((cell, index)=>{
-      containerDiv.appendChild(cell.addDiv());
-    
+      const cellDiv = cell.addDiv();
+      cellDiv.style.display = "flex";
+      containerDiv.appendChild(cellDiv);
     })
   })
-
 }
 
 
+function GameController(){
+  // const selectCell = Toggleboard();
+  // const xMarker = selectCell.addXmarker();
+  
+  
+
+}
 
 
