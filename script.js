@@ -35,67 +35,80 @@ function IntroController(){
    
    buttonX.addEventListener("click", buttonXClick);
    buttonO.addEventListener("click", buttonOClick);
-}
+  }
   
-const clearScreen = ()=> {
+  const clearScreen = ()=> {
   let firstElem = document.getElementsByClassName("X")[0];
   let secondElem = document.getElementsByClassName("O")[0];
 
   firstElem.remove();
   secondElem.remove();
-}
+  } 
   
-const checkBothButtonsClicked = ()=>{
+  const checkBothButtonsClicked = ()=>{
   if(button1Clicked && button2Clicked){
     clearScreen();
   
   }
-}
+  }
 
-
-  userSelection();
-
-
-
-  
+userSelection();
 }
 
 IntroController();
 
 
 
-const gameBoard = ()=>{
 
-  const body = document.body;
-  body.style.backgroundColor = "black";
-  const firstDiv = document.createElement("div");
-  console.log(firstDiv);
-  firstDiv.classList.add("grid-container");
+//Constructor function to create the board 
+function Gameboard(){ 
+  const rows = 3;
+  const columns = 3;
+  const board = [];
 
-  for(let i = 0; i < 9; i++){
-    const div = document.createElement("div");
-    div.classList.add('edit');
-    firstDiv.appendChild(div);
+  //Use nested for-loop to create a 2D array which holds the entire gameBoard
+  for(let i = 0; i < rows; i++){ 
+    board[i] = [];
+    for(let j = 0; j < columns; j++){
+     board[i].push(Cell()); //Each element in the 2D array has a cell object                           
+    }
   }
 
 
-
+  const getBoard = ()=> board;
   
 
+  return{
+    getBoard
+  }
 
 }
 
 
-function clickElement(e){
- 
+function Cell(){
+ let value = "NA";
+
+  const addMarker = (player)=>{
+  value = player;
+  }
+
+  const getValue = ()=> value;
+  return{
+    addMarker,
+    getValue
+  }
+}
+
+
+function Toggleboard(){
+  const addXmarker = (e)=>{
   let current = e.target;
     
 
   let holder = document.createElement('div');
     
   let p = document.createElement('p');
-   let markerX = 
-       document.createTextNode("X");
+  let markerX = document.createTextNode("X");
     
   p.appendChild(markerX);
   p.style.fontSize = "100px";
@@ -106,9 +119,36 @@ function clickElement(e){
   holder.appendChild(p);
   
   current.appendChild(holder);
-  
-  
+  }
+
+  const addOmarker = (e)=>{
+    let current = e.target;
+    
+
+    let holder = document.createElement('div');
+      
+    let p = document.createElement('p');
+    let markerX = document.createTextNode("X");
+      
+    p.appendChild(markerX);
+    p.style.fontSize = "100px";
+    p.style.textShadow = "1px 1px 4px white";
+    p.style.textAlign = "center";
+      
+    holder.classList.add("flex");
+    holder.appendChild(p);
+    
+    current.appendChild(holder);
+  }
+
+  return{
+    addXmarker,
+    addOmarker
+  }
 }
+
+
+
 
 
 
