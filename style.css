@@ -49,3 +49,50 @@
           box-shadow: 0 40px 10px -18px rgba(0,0,0,0.2), 0 40px 16px -12px rgba(0,0,0,0.2);
      }
  }
+
+ .board {
+    display: none;
+    height: 500px;
+    width: 500px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 1px solid black;
+    gap: 2px;
+    padding: 2px;
+    background-color: rgb(216,241,247);
+  }
+
+  .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    border: 1px solid black;
+    background: rgb(216,241,247);
+    cursor: pointer;
+  }
+
+ h1{
+    text-shadow: 1px 1px 4px white;
+    font-size: 100px;
+    text-align: center;
+  }
+  
+  .edit{
+    height: 400px;
+    width: 400px;
+    border: 2px solid white;
+    box-shadow: 10px 5px 5px white;
+  }
+  
+  .flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .edit:hover{
+    box-shadow: 10px 5px 15px silver;
+  }
