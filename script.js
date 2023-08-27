@@ -7,15 +7,21 @@ function IntroController(){
   let button1Clicked = false;
   let button2Clicked = false;
 
+  //Contructor to set user marker in an object
+  function Playerassign(marker){ 
+    this.marker = marker;
+  }
 
   const buttonXClick = () =>{
-    playerAssign(choiceX);
+    const player1 = new Playerassign(choiceX); //Create object instance player 1 which has a key value pair of marker: X
+    console.log(player1);
     button1Clicked = true;
     checkBothButtonsClicked();
   }
   
   const buttonOClick = () =>{
-    playerAssign(choiceO);
+    const player2 = new Playerassign(choiceO); //Create object instance player2 which has a key value pair of marker: O
+    console.log(player2);
     button2Clicked = true;
     checkBothButtonsClicked();
   }
@@ -42,56 +48,43 @@ const clearScreen = ()=> {
 const checkBothButtonsClicked = ()=>{
   if(button1Clicked && button2Clicked){
     clearScreen();
-    makeBoard();
+  
   }
 }
 
 
-  
-  //Factory function to assign player name and token
-  const playerAssign = (choice)=>{
-
- 
-    const player = {
-      choice: choice,
-    }
-
-    
-  
-
-
-    
-  
-  return player
-  }
-  
   userSelection();
+
+
+
   
-
-
-
-
-
-
-
-
 }
+
 IntroController();
 
-function makeBoard(){
+
+
+const gameBoard = ()=>{
 
   const body = document.body;
   body.style.backgroundColor = "black";
+  const firstDiv = document.createElement("div");
+  console.log(firstDiv);
+  firstDiv.classList.add("grid-container");
 
-  for(let i = 0; i < 10; i++){
+  for(let i = 0; i < 9; i++){
     const div = document.createElement("div");
     div.classList.add('edit');
-    body.appendChild(div);
+    firstDiv.appendChild(div);
   }
 
 
 
-  let grabber = document.querySelector("div").addEventListener("click", clickElement);
+  
+
+
+}
+
 
 function clickElement(e){
  
@@ -116,11 +109,6 @@ function clickElement(e){
   
   
 }
-}
-
-
-
-
 
 
 
