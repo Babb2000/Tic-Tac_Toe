@@ -168,11 +168,14 @@ function displayBoard(){
   const board = Gameboard();
   const realBoard = board.getBoard();
   const doc = document.body;
+  const containerDiv = document.querySelector(".flex");
+  containerDiv.style.display = "grid";
+  doc.appendChild(containerDiv);
 
   
   realBoard.forEach((row)=>{
     row.forEach((cell, index)=>{
-      doc.appendChild(cell.addDiv());
+      containerDiv.appendChild(cell.addDiv());
     
     })
   })
