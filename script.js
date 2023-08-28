@@ -172,7 +172,7 @@ function displayBoard(playArr){
       cellDiv.addEventListener("click", function(e){
       const toggle = Toggleboard();
       if(playArr[0].marker === "X"){
-        toggle.addOmarker(cellDiv);
+        toggle.addXmarker(cellDiv);
         changeMarker(playArr);
       }
       else if(playArr[0].marker === "O")
@@ -191,14 +191,15 @@ function displayBoard(playArr){
 }
 
 const changeMarker = (playArr)=>{
+  console.log(playArr[0].marker);
   if(playArr[0].marker === "X"){
-    playArr[0].marker === "O";
+    playArr[0].marker = "O";
   }
   else {
-    playArr[0].marker === "X";
+    playArr[0].marker = "X";
   }
 
-  return playArr[0].marker;
+  console.log(playArr[0].marker);
 }
 
 
