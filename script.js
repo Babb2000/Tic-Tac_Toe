@@ -117,39 +117,29 @@ function Toggleboard(){
   
 
   const addXmarker = (cellDiv)=>{
-
-  let holder = document.createElement('div');
     
   let p = document.createElement('p');
   let markerX = document.createTextNode("X");
     
   p.appendChild(markerX);
-  p.style.fontSize = "100px";
+  p.style.fontSize = "20px";
   p.style.textShadow = "1px 1px 4px white";
   p.style.textAlign = "center";
-    
-  holder.classList.add("flex");
-  holder.appendChild(p);
-  
-  cellDiv.appendChild(holder);
+   
+  cellDiv.appendChild(p);
   }
 
   const addOmarker = (cellDiv)=>{
-    
-    let holder = document.createElement('div');
-      
+
     let p = document.createElement('p');
     let markerX = document.createTextNode("X");
       
     p.appendChild(markerX);
-    p.style.fontSize = "100px";
+    p.style.fontSize = "20px";
     p.style.textShadow = "1px 1px 4px white";
     p.style.textAlign = "center";
-      
-    holder.classList.add("flex");
-    holder.appendChild(p);
-    
-    cellDiv.appendChild(holder);
+
+    cellDiv.appendChild(p);
   }
 
   return{
