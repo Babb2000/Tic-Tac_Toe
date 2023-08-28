@@ -6,6 +6,7 @@ function IntroController(){
   const choiceO = "O";
   let button1Clicked = false;
   let button2Clicked = false;
+  const playerHolder = [];
 
   //Contructor to set user marker in an object
   function Playerassign(marker){ 
@@ -14,14 +15,14 @@ function IntroController(){
 
   const buttonXClick = () =>{
     const player1 = new Playerassign(choiceX); //Create object instance player 1 which has a key value pair of marker: X
-    console.log(player1);
+    playerHolder.push(player1);
     button1Clicked = true;
     checkBothButtonsClicked();
   }
   
   const buttonOClick = () =>{
     const player2 = new Playerassign(choiceO); //Create object instance player2 which has a key value pair of marker: O
-    console.log(player2);
+    playerHolder.push(player2);
     button2Clicked = true;
     checkBothButtonsClicked();
   }
@@ -45,7 +46,7 @@ function IntroController(){
   firstElem.remove();
   secondElem.remove();
 
-  displayBoard();
+  displayBoard(playerHolder);
   } 
   
   const checkBothButtonsClicked = ()=>{
@@ -56,6 +57,7 @@ function IntroController(){
   }
 
 userSelection();
+
 }
 
 IntroController();
@@ -132,7 +134,7 @@ function Toggleboard(){
   const addOmarker = (cellDiv)=>{
 
     let p = document.createElement('p');
-    let markerX = document.createTextNode("X");
+    let markerX = document.createTextNode("O");
       
     p.appendChild(markerX);
     p.style.fontSize = "20px";
@@ -151,7 +153,7 @@ function Toggleboard(){
 
 
 
-function displayBoard(){
+function displayBoard(playArr){
 
   console.log("Inside display board");
   const board = Gameboard();
@@ -168,9 +170,17 @@ function displayBoard(){
       containerDiv.appendChild(cellDiv);
 
       cellDiv.addEventListener("click", function(e){
-      console.log(e.target);
       const toggle = Toggleboard();
-      toggle.addOmarker(cellDiv);
+      if(playArr[0].marker === "X"){
+        toggle.addOmarker(cellDiv);
+        changeMarker(playArr);
+      }
+      else if(playArr[0].marker === "O")
+      {
+        toggle.addOmarker(cellDiv);
+        changeMarker(playArr);
+      }
+      
     })
   })
 
@@ -180,12 +190,32 @@ function displayBoard(){
 
 }
 
+const changeMarker = (playArr)=>{
+  if(playArr[0].marker === "X"){
+    playArr[0].marker === "O";
+  }
+  else {
+    playArr[0].marker === "X";
+  }
+
+  return playArr[0].marker;
+}
+
 
 function GameController(){
-  // const selectCell = Toggleboard();
-  // const xMarker = selectCell.addXmarker();
+
+  //Add logic to control whose turn it is
+  const playerTurn = ()=>{
+  return playerTurn[0].marker === "X" ? playerTurn[0].marker === "O" : playerTurn[0].marker === "X"
+  }
+
   
   
+  
+  
+
+
+
 
 }
 
