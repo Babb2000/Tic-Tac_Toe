@@ -102,10 +102,10 @@ function Gameboard(){
 
 
 function Cell(){
- let counter = 0;
+
 
   const addMarker = (player)=>{
-    console.log(player);
+  console.log(player);
   value = player;
   }
 
@@ -115,9 +115,10 @@ function Cell(){
     const div = document.createElement("div");
     div.classList.add("edit");
     div.style.display = "block";
+
     return div;
-  
   }
+
 
   return{
     addMarker,
@@ -177,7 +178,7 @@ function checkWinner(gameBoard){
           gameBoard.forEach((row)=>{
             row.forEach((cell,index)=>{
               if(cell.getValue() === "X"){
-                console.log(`The value of index is => ${index}`);
+                console.log(cell.currentNum());
               }
             })
           })
@@ -222,6 +223,9 @@ function displayBoard(playArr){
       const toggle = Toggleboard();
       if(playArr[0].marker === "X"){
         toggle.addXmarker(cellDiv);
+        let currentElem = e.currentTarget;
+        let strId = currentElem.getAttribute("data-number");
+        console.log(strId);
         cellProp.addMarker("X");
         changeMarker(playArr);
       }
