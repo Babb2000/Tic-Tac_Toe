@@ -49,7 +49,6 @@ function IntroController(){
   }
   
   const clearScreen = ()=> {
-    console.log("Inside clearScreen");
   let firstElem = document.getElementsByClassName("X")[0];
   let secondElem = document.getElementsByClassName("O")[0];
 
@@ -102,10 +101,9 @@ function Gameboard(){
 
 
 function Cell(){
-
+  let value = "NA"
 
   const addMarker = (player)=>{
-  console.log(player);
   value = player;
   }
 
@@ -164,35 +162,28 @@ function Toggleboard(){
   }
 }
 
-function checkWinner(gameBoard){
-  console.log("Inside checkWinner function");
-  let holdArr = [];
+function checkWinner(gameBoard, arr){
   let countX = 0;
   gameBoard.forEach((row)=>{
     row.forEach((cell,index)=>{
-      if(cell.getValue() !== "NA"){
         if(cell.getValue() === "X"){
+          console.log(cell.getValue());
           countX++;
+          console.log(countX);
           if(countX === 3){
-          //Loop through the 2D array again this time extract the number from the data-number property of the cells that have the marker X
-          gameBoard.forEach((row)=>{
-            row.forEach((cell,index)=>{
-              if(cell.getValue() === "X"){
-                console.log(cell.currentNum());
-              }
-            })
-          })
+           compareWinnerCombo(arr);
           }
         }
-      }
     })
   })                      
 }
 
+
+
 function displayBoard(playArr){
+  const tempArr = [];
   let counter = 0;
   const changeMarker = (playArr)=>{
-    console.log(playArr[0].marker);
     if(playArr[0].marker === "X"){
       playArr[0].marker = "O";
     }
@@ -200,10 +191,9 @@ function displayBoard(playArr){
       playArr[0].marker = "X";
     }
   }
-  
-  const cellProp = Cell();
 
-  console.log("Inside display board");
+  const cellProp = Cell();
+  
   const board = Gameboard();
   const realBoard = board.getBoard();
   const doc = document.body;
@@ -225,7 +215,8 @@ function displayBoard(playArr){
         toggle.addXmarker(cellDiv);
         let currentElem = e.currentTarget;
         let strId = currentElem.getAttribute("data-number");
-        console.log(strId);
+        let num = parseInt(strId);
+        tempArr.push(num);
         cellProp.addMarker("X");
         changeMarker(playArr);
       }
@@ -235,13 +226,13 @@ function displayBoard(playArr){
         cellProp.addMarker("O");
         changeMarker(playArr);
       }
-      checkWinner(realBoard);
+      checkWinner(realBoard, tempArr);
       })
   })
 })
 }
 
-const compareWinnerCombo = ()=>{
+const compareWinnerCombo = (arr)=>{
   const winningCombos = [[1,2,3],
                           [1,4,7],
                           [1,5,9],
@@ -251,6 +242,20 @@ const compareWinnerCombo = ()=>{
                           [4,5,6],
                           [7,8,9], 
 ]
+
+for(const element of winningCombos){
+  let sortedElement = element.sort();
+  let sortedArr = arr.sort();
+  for(let i = 0; i < sortedArr.length; i++){
+    if(sortedElement[i] != sortedArr[i]){
+      return false;
+    }
+    else{
+      console.log("Player 1 is the winner");
+    }
+  }
+}
+
 }
 
 
