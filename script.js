@@ -8,6 +8,16 @@ function IntroController(){
   let button2Clicked = false;
   const playerHolder = [];
 
+  const buttonX = document.querySelector(".X");
+  buttonX.addEventListener("click", ()=>{
+  buttonX.style.animationPlayState = 'paused';
+   })
+
+  const buttonO = document.querySelector(".O");
+  buttonO.addEventListener("click", ()=>{
+  buttonO.style.animationPlayState = 'paused';
+  })
+
   //Contructor to set user marker in an object
   function Playerassign(marker){ 
     this.marker = marker;
@@ -92,9 +102,10 @@ function Gameboard(){
 
 
 function Cell(){
- let value = "NA";
+ let counter = 0;
 
   const addMarker = (player)=>{
+    console.log(player);
   value = player;
   }
 
@@ -105,6 +116,7 @@ function Cell(){
     div.classList.add("edit");
     div.style.display = "block";
     return div;
+  
   }
 
   return{
@@ -151,6 +163,30 @@ function Toggleboard(){
   }
 }
 
+function checkWinner(gameBoard){
+  console.log("Inside checkWinner function");
+  let holdArr = [];
+  let countX = 0;
+  gameBoard.forEach((row)=>{
+    row.forEach((cell,index)=>{
+      if(cell.getValue() !== "NA"){
+        if(cell.getValue() === "X"){
+          countX++;
+          if(countX === 3){
+          //Loop through the 2D array again this time extract the number from the data-number property of the cells that have the marker X
+          gameBoard.forEach((row)=>{
+            row.forEach((cell,index)=>{
+              if(cell.getValue() === "X"){
+                console.log(`The value of index is => ${index}`);
+              }
+            })
+          })
+          }
+        }
+      }
+    })
+  })                      
+}
 
 function displayBoard(playArr){
   let counter = 0;
@@ -162,10 +198,9 @@ function displayBoard(playArr){
     else {
       playArr[0].marker = "X";
     }
-  
-    console.log(playArr[0].marker);
   }
   
+  const cellProp = Cell();
 
   console.log("Inside display board");
   const board = Gameboard();
@@ -180,32 +215,30 @@ function displayBoard(playArr){
       ++counter;
       const cellDiv = cell.addDiv();
       cellDiv.style.display = "flex";
-      containerDiv.appendChild(cellDiv);
       cellDiv.dataset.number = `${counter}`;
+      containerDiv.appendChild(cellDiv);
 
       cellDiv.addEventListener("click", function(e){
       const toggle = Toggleboard();
       if(playArr[0].marker === "X"){
         toggle.addXmarker(cellDiv);
+        cellProp.addMarker("X");
         changeMarker(playArr);
       }
       else if(playArr[0].marker === "O")
       {
         toggle.addOmarker(cellDiv);
+        cellProp.addMarker("O");
         changeMarker(playArr);
       }
-      
-    })
+      checkWinner(realBoard);
+      })
   })
-
-  
-  })
-
-
+})
 }
 
-const checkWinner = ()=>{
-  const winningCombos = [ [1,2,3],
+const compareWinnerCombo = ()=>{
+  const winningCombos = [[1,2,3],
                           [1,4,7],
                           [1,5,9],
                           [1,5,8],
@@ -213,8 +246,7 @@ const checkWinner = ()=>{
                           [3,6,9],
                           [4,5,6],
                           [7,8,9], 
-                        ]
-  return winningCombos;                      
+]
 }
 
 
