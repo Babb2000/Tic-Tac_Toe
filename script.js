@@ -152,9 +152,8 @@ function Toggleboard(){
 }
 
 
-
 function displayBoard(playArr){
-
+  let counter = 0;
   const changeMarker = (playArr)=>{
     console.log(playArr[0].marker);
     if(playArr[0].marker === "X"){
@@ -178,9 +177,11 @@ function displayBoard(playArr){
   
   realBoard.forEach((row)=>{
     row.forEach((cell, index)=>{
+      ++counter;
       const cellDiv = cell.addDiv();
       cellDiv.style.display = "flex";
       containerDiv.appendChild(cellDiv);
+      cellDiv.dataset.number = `${counter}`;
 
       cellDiv.addEventListener("click", function(e){
       const toggle = Toggleboard();
@@ -203,11 +204,18 @@ function displayBoard(playArr){
 
 }
 
-// function checkWinner = ()=>{
-//   const winningCombos = [ [0,0]
-
-//   ]
-// }
+const checkWinner = ()=>{
+  const winningCombos = [ [1,2,3],
+                          [1,4,7],
+                          [1,5,9],
+                          [1,5,8],
+                          [3,5,7],
+                          [3,6,9],
+                          [4,5,6],
+                          [7,8,9], 
+                        ]
+  return winningCombos;                      
+}
 
 
 
