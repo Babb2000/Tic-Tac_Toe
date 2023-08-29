@@ -155,6 +155,19 @@ function Toggleboard(){
 
 function displayBoard(playArr){
 
+  const changeMarker = (playArr)=>{
+    console.log(playArr[0].marker);
+    if(playArr[0].marker === "X"){
+      playArr[0].marker = "O";
+    }
+    else {
+      playArr[0].marker = "X";
+    }
+  
+    console.log(playArr[0].marker);
+  }
+  
+
   console.log("Inside display board");
   const board = Gameboard();
   const realBoard = board.getBoard();
@@ -190,34 +203,12 @@ function displayBoard(playArr){
 
 }
 
-const changeMarker = (playArr)=>{
-  console.log(playArr[0].marker);
-  if(playArr[0].marker === "X"){
-    playArr[0].marker = "O";
-  }
-  else {
-    playArr[0].marker = "X";
-  }
+// function checkWinner = ()=>{
+//   const winningCombos = [ [0,0]
 
-  console.log(playArr[0].marker);
-}
+//   ]
+// }
 
 
-function GameController(){
-
-  //Add logic to control whose turn it is
-  const playerTurn = ()=>{
-  return playerTurn[0].marker === "X" ? playerTurn[0].marker === "O" : playerTurn[0].marker === "X"
-  }
-
-  
-  
-  
-  
-
-
-
-
-}
 
 
