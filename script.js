@@ -128,10 +128,10 @@ function Cell(){
 
 function Toggleboard(){
   
-
   const addXmarker = (cellDiv)=>{
-    
-  let p = document.createElement('p');
+   
+  if(cellDiv.childNodes.length === 0){
+    let p = document.createElement('p');
   let markerX = document.createTextNode("X");
     
   p.appendChild(markerX);
@@ -141,9 +141,11 @@ function Toggleboard(){
    
   cellDiv.appendChild(p);
   }
+  
+  }
 
   const addOmarker = (cellDiv)=>{
-
+    if(cellDiv.childNodes.length === 0){
     let p = document.createElement('p');
     let markerX = document.createTextNode("O");
       
@@ -153,6 +155,8 @@ function Toggleboard(){
     p.style.textAlign = "center";
 
     cellDiv.appendChild(p);
+    }
+    
   }
 
   return{
