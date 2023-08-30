@@ -1,5 +1,3 @@
-
-let counter2 = 0;
 function IntroController(){
 
   const choiceX = "X";
@@ -170,22 +168,28 @@ function Toggleboard(){
 }
 
 function checkWinner(arrX, arrO){
+
+
 const player = "X";
 const player2 = "O";
-console.log(arrX);
-console.log(arrO);
 
 if(arrX.length === 3){
+  compareWinnerCombo(arrX,player);
+}
+else if(arrX.length > 3){
+  arrX.shift();
   compareWinnerCombo(arrX,player);
 }
 
 if(arrO.length === 3){
   compareWinnerCombo(arrO, player2);
 }
-  
-           
+else if(arrO.length > 3){
+  arrO.shift();
+  compareWinnerCombo(arrO, player2);
 }
 
+}
 
 
 function displayBoard(playArr){
@@ -248,6 +252,8 @@ function displayBoard(playArr){
 
 const compareWinnerCombo = (arr, player)=>{
   let count = 0;
+  console.log(arr);
+  console.log(player);
   const winningCombos = [[1,2,3],
                           [1,4,7],
                           [1,5,9],
@@ -256,6 +262,7 @@ const compareWinnerCombo = (arr, player)=>{
                           [3,6,9],
                           [4,5,6],
                           [7,8,9], 
+                          [2,5,8],
 ]
 
 if(player === "X"){
@@ -270,7 +277,7 @@ if(player === "X"){
       }
     }
     if(isWinner){
-      console.log(`Player ${player} is the winner`);
+      console.log(`Player ${player} is the winner!`);
     }
   }
 }
@@ -279,13 +286,15 @@ if(player === "O"){
   for(const element of winningCombos){
     let sortedElement = element.sort();
     let sortedArr = arr.sort();
+    isWinner = true;
     for(let i = 0; i < sortedArr.length; i++){
       if(sortedElement[i] != sortedArr[i]){
-        return false;
+        isWinner = false;
+        break;
       }
-      else{
-        console.log("Player O is the winner");
-      }
+    }
+    if(isWinner){
+      console.log(`Player ${player} is the winner!`);
     }
   }
 }
