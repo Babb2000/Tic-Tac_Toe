@@ -162,10 +162,16 @@ function Toggleboard(){
   }
 }
 
-function checkWinner(arr){
+function checkWinner(arrX, arrO){
+const player = "X";
+const player2 = "O";
 
-if(arr.length === 3){
-  compareWinnerCombo(arr);
+if(arrX.length === 3){
+  compareWinnerCombo(arrX,player);
+}
+
+if(arrO.length === 3){
+  compareWinnerCombo(arrO, player2);
 }
   
            
@@ -175,7 +181,8 @@ if(arr.length === 3){
 
 function displayBoard(playArr){
   
-  const tempArr = [];
+  const tempArrX = [];
+  const tempArrO = [];
   let counter = 0;
   const changeMarker = (playArr)=>{
     if(playArr[0].marker === "X"){
@@ -210,23 +217,27 @@ function displayBoard(playArr){
         let currentElem = e.currentTarget;
         let strId = currentElem.getAttribute("data-number");
         let num = parseInt(strId);
-        tempArr.push(num);
+        tempArrX.push(num);
         cellProp.addMarker("X");
         changeMarker(playArr);
       }
       else if(playArr[0].marker === "O")
       {
         toggle.addOmarker(cellDiv);
+        let currentElem2 = e.currentTarget;
+        let strId2 = currentElem2.getAttribute("data-number");
+        let num2 = parseInt(strId2);
+        tempArrO.push(num2);
         cellProp.addMarker("O");
         changeMarker(playArr);
       }
-      checkWinner(tempArr);
+      checkWinner(tempArrX, tempArrO);
       })
   })
 })
 }
 
-const compareWinnerCombo = (arr)=>{
+const compareWinnerCombo = (arr, player)=>{
   const winningCombos = [[1,2,3],
                           [1,4,7],
                           [1,5,9],
@@ -237,18 +248,36 @@ const compareWinnerCombo = (arr)=>{
                           [7,8,9], 
 ]
 
-for(const element of winningCombos){
-  let sortedElement = element.sort();
-  let sortedArr = arr.sort();
-  for(let i = 0; i < sortedArr.length; i++){
-    if(sortedElement[i] != sortedArr[i]){
-      return false;
-    }
-    else{
-      console.log("Player 1 is the winner");
+if(player === "X"){
+  for(const element of winningCombos){
+    let sortedElement = element.sort();
+    let sortedArr = arr.sort();
+    for(let i = 0; i < sortedArr.length; i++){
+      if(sortedElement[i] != sortedArr[i]){
+        return false;
+      }
+      else{
+        console.log("Player X is the winner");
+      }
     }
   }
 }
+
+if(player === "O"){
+  for(const element of winningCombos){
+    let sortedElement = element.sort();
+    let sortedArr = arr.sort();
+    for(let i = 0; i < sortedArr.length; i++){
+      if(sortedElement[i] != sortedArr[i]){
+        return false;
+      }
+      else{
+        console.log("Player O is the winner");
+      }
+    }
+  }
+}
+
 
 }
 
