@@ -167,26 +167,26 @@ function Toggleboard(){
   }
 }
 
-function checkWinner(arrX, arrO){
+function checkWinner(arrX, arrO, realBoard){
 
 
 const player = "X";
 const player2 = "O";
 
 if(arrX.length === 3){
-  compareWinnerCombo(arrX,player);
+  compareWinnerCombo(arrX,player, realBoard);
 }
 else if(arrX.length > 3){
   arrX.shift();
-  compareWinnerCombo(arrX,player);
+  compareWinnerCombo(arrX,player, realBoard);
 }
 
 if(arrO.length === 3){
-  compareWinnerCombo(arrO, player2);
+  compareWinnerCombo(arrO, player2, realBoard);
 }
 else if(arrO.length > 3){
   arrO.shift();
-  compareWinnerCombo(arrO, player2);
+  compareWinnerCombo(arrO, player2, realBoard);
 }
 
 }
@@ -244,13 +244,14 @@ function displayBoard(playArr){
         cellProp.addMarker("O");
         changeMarker(playArr);
       }
-      checkWinner(tempArrX, tempArrO);
+      checkWinner(tempArrX, tempArrO, realBoard);
       })
   })
 })
 }
 
 const compareWinnerCombo = (arr, player)=>{
+  
   let count = 0;
   console.log(arr);
   console.log(player);
@@ -277,6 +278,7 @@ if(player === "X"){
       }
     }
     if(isWinner){
+      lightUpCells(arr);
       console.log(`Player ${player} is the winner!`);
     }
   }
@@ -294,14 +296,30 @@ if(player === "O"){
       }
     }
     if(isWinner){
+      lightUpCells(arr);
       console.log(`Player ${player} is the winner!`);
     }
   }
 }
-
-
 }
 
+function lightUpCells(arr){
+  let [a,b,c] = arr;
+  console.log(a,b,c);
+ 
+  const targetAttribute1 = String(a);
+  const targetAttribute2 = String(b);
+  const targetAttribute3 = String(c);
 
+  const elementwithAttribute1 = document.querySelectorAll(`[data-number="${targetAttribute1}"]`);
+  elementwithAttribute1[0].style.backgroundColor = "#BBF9F8";
+
+  const elementwithAttribute2 = document.querySelectorAll(`[data-number="${targetAttribute2}"]`);
+  elementwithAttribute2[0].style.backgroundColor = "#BBF9F8";
+
+  const elementwithAttribute3 = document.querySelectorAll(`[data-number="${targetAttribute3}"]`);
+  elementwithAttribute3[0].style.backgroundColor = "#BBF9F8";
+
+}
 
 
