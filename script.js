@@ -1,5 +1,5 @@
 
-
+let counter2 = 0;
 function IntroController(){
 
   const choiceX = "X";
@@ -101,7 +101,7 @@ function Gameboard(){
 
 
 function Cell(){
-  let value = "NA"
+  
 
   const addMarker = (player)=>{
   value = player;
@@ -162,25 +162,19 @@ function Toggleboard(){
   }
 }
 
-function checkWinner(gameBoard, arr){
-  let countX = 0;
-  gameBoard.forEach((row)=>{
-    row.forEach((cell,index)=>{
-        if(cell.getValue() === "X"){
-          console.log(cell.getValue());
-          countX++;
-          console.log(countX);
-          if(countX === 3){
-           compareWinnerCombo(arr);
-          }
-        }
-    })
-  })                      
+function checkWinner(arr){
+
+if(arr.length === 3){
+  compareWinnerCombo(arr);
+}
+  
+           
 }
 
 
 
 function displayBoard(playArr){
+  
   const tempArr = [];
   let counter = 0;
   const changeMarker = (playArr)=>{
@@ -226,7 +220,7 @@ function displayBoard(playArr){
         cellProp.addMarker("O");
         changeMarker(playArr);
       }
-      checkWinner(realBoard, tempArr);
+      checkWinner(tempArr);
       })
   })
 })
