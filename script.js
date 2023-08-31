@@ -342,26 +342,57 @@ function lightUpCells(arr){
   const elementwithAttribute3 = document.querySelectorAll(`[data-number="${targetAttribute3}"]`);
   elementwithAttribute3[0].style.backgroundColor = "#BBF9F8";
 
-  //setTimeout(2000, showGameOverlay);
+  setTimeout(addElements,2000);
 
+  const overlay = document.getElementById('overlay');
+  const playAgainButton = document.getElementById("play-again-button");
+
+  playAgainButton.addEventListener("click", ()=>{
+    overlay.classList.add("hidden"); //Hiden the overlay
+    //Reset game Logic
+    IntroController();
+
+  }) 
+
+
+
+  setTimeout(showGameOverlay, 2000);
 }
 
 
 
-  // const overlay = document.getElementById('overlay');
-  // const playAgainButton = document.getElementById("play-again-button");
+function addElements(){
+  const span = document.createElement("span");
+  span.setAttribute("id", "overlay");
+  span.classList.add("hidden");
 
-  // playAgainButton.addEventListener("click", ()=>{
-  //   overlay.classList.add("hidden"); //Hiden the overlay
-  //   //Reset game Logic
-
-  // }) 
-
+  const span2 = document.createElement('span');
+  span2.setAttribute("id", "playAgain");
 
 
+  const h2 = document.createElement("h2");
+  h2.style.textShadow = "1px 1px 4px white";
+  const text = document.createTextNode("Game Over!");
+  h2.style.fontSize = "100px";
 
-const showGameOverlay = ()=>{
+  
+
+
+  span.appendChild(span2);
+  span2.appendChild(h2);
+  h2.appendChild(text);
+
+
+  const lowestElement = document.body;
+  lowestElement.appendChild(span);
+
+}
+
+
+function showGameOverlay(){
   overlay.classList.remove("hidden");
 }
+
+
 
 
