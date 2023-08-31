@@ -320,7 +320,37 @@ if(player === "X" && arr.length === 3){
       console.log(`Player ${player} is the winner!`);
     }
   }
+
 }
+else if(player === "O" && arr.length > 3){
+
+  for(const element of winningCombos){
+    let sortedElement = [...element].sort(); //Spread the sorted array into a new array called sortedElement
+    let sortedArr = [...arr].sort();
+    let isWinner = true;
+
+    //Find the first differing element and remove it from the array
+    for(let i = 0; i < sortedArr.length; i++){
+      if(sortedElement[i] !== sortedArr[i]){
+        sortedArr.splice(i,1);
+        break;
+      }
+    }
+
+    for(let i = 0; i < sortedArr.length; i++){
+      if(sortedElement[i] !== sortedArr[i]){
+        isWinner = false;
+        break;
+      }
+    }
+
+    if(isWinner){
+      lightUpCells(sortedArr);
+      console.log(`Player ${player} is the winner`);
+    }
+  }
+}
+
 
 
 
