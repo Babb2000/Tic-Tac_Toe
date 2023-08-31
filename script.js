@@ -173,19 +173,11 @@ function checkWinner(arrX, arrO, realBoard){
 const player = "X";
 const player2 = "O";
 
-if(arrX.length === 3){
-  compareWinnerCombo(arrX,player, realBoard);
-}
-else if(arrX.length > 3){
-  arrX.shift();
+if(arrX.length >= 3){
   compareWinnerCombo(arrX,player, realBoard);
 }
 
-if(arrO.length === 3){
-  compareWinnerCombo(arrO, player2, realBoard);
-}
-else if(arrO.length > 3){
-  arrO.shift();
+if(arrO.length >= 3){
   compareWinnerCombo(arrO, player2, realBoard);
 }
 
@@ -253,8 +245,6 @@ function displayBoard(playArr){
 const compareWinnerCombo = (arr, player)=>{
   
   let count = 0;
-  console.log(arr);
-  console.log(player);
   const winningCombos = [[1,2,3],
                           [1,4,7],
                           [1,5,9],
@@ -266,7 +256,7 @@ const compareWinnerCombo = (arr, player)=>{
                           [2,5,8],
 ]
 
-if(player === "X"){
+if(player === "X" && arr.length === 3){
   for(const element of winningCombos){
     let sortedElement = element.sort();
     let sortedArr = arr.sort();
@@ -283,8 +273,40 @@ if(player === "X"){
     }
   }
 }
+else if(player === "X" && arr.length > 3){
 
-if(player === "O"){
+for(const element of winningCombos){
+  let sortedElement = [...element].sort(); //Spread the sorted array into a new array called sortedElement
+  let sortedArr = [...arr].sort();
+  let isWinner = true;
+
+  //Find the first differing element and remove it from the array
+  for(let i = 0; i < sortedArr.length; i++){
+    if(sortedElement[i] !== sortedArr[i]){
+      sortedArr.splice(i,1);
+      break;
+    }
+  }
+
+  for(let i = 0; i < sortedArr.length; i++){
+    if(sortedArr[i] !== sortedArr[i]){
+      isWinner = false;
+      break;
+    }
+  }
+
+  if(isWinner){
+    lightUpCells(sortedArr);
+    console.log(`Player ${player} is the winner`);
+  }
+}
+
+}
+
+}
+
+
+if(player === "O" && arr.length === 3){
   for(const element of winningCombos){
     let sortedElement = element.sort();
     let sortedArr = arr.sort();
@@ -301,9 +323,11 @@ if(player === "O"){
     }
   }
 }
-}
+
+
 
 function lightUpCells(arr){
+  console.log(arr);
   let [a,b,c] = arr;
   console.log(a,b,c);
  
