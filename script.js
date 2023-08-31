@@ -249,7 +249,6 @@ const compareWinnerCombo = (arr, player)=>{
   const winningCombos = [[1,2,3],
                           [1,4,7],
                           [1,5,9],
-                          [1,5,8],
                           [3,5,7],
                           [3,6,9],
                           [4,5,6],
