@@ -342,6 +342,26 @@ function lightUpCells(arr){
   const elementwithAttribute3 = document.querySelectorAll(`[data-number="${targetAttribute3}"]`);
   elementwithAttribute3[0].style.backgroundColor = "#BBF9F8";
 
+  //setTimeout(2000, showGameOverlay);
+
+}
+
+
+
+  // const overlay = document.getElementById('overlay');
+  // const playAgainButton = document.getElementById("play-again-button");
+
+  // playAgainButton.addEventListener("click", ()=>{
+  //   overlay.classList.add("hidden"); //Hiden the overlay
+  //   //Reset game Logic
+
+  // }) 
+
+
+
+
+const showGameOverlay = ()=>{
+  overlay.classList.remove("hidden");
 }
 
 
