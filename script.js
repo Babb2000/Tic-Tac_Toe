@@ -190,6 +190,7 @@ function displayBoard(playArr){
   
   const tempArrX = [];
   const tempArrO = [];
+  const clickedCells = [];
   let counter = 0;
   const changeMarker = (playArr)=>{
     if(playArr[0].marker === "X"){
@@ -218,6 +219,7 @@ function displayBoard(playArr){
       containerDiv.appendChild(cellDiv);
 
       cellDiv.addEventListener("click", function(e){
+        listenforDoubleClick(e, clickedCells, changeMarker);
       const toggle = Toggleboard();
       if(playArr[0].marker === "X"){
         toggle.addXmarker(cellDiv);
@@ -347,7 +349,16 @@ else if(player === "O" && arr.length > 3){
 }
 }
 
-
+const listenforDoubleClick = (e, clickedCells, changeMarker)=>{
+  let currentCell = e.target;
+  
+  if(clickedCells.includes(currentCell)){
+    changeMarker();
+  }
+  else{
+    clickedCells.push(currentCell);
+  }
+}
 
 
 function lightUpCells(arr){
