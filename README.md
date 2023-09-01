@@ -38,3 +38,5 @@ During this project, I will be creating a simple Tic-Tac-Toe game that you can p
 - Utilized the sort method in creating an algorithm for checking for a winner
 - Got introduced to CSS keyframes
 - Used javascripts spread and destructoring assignment when extracting data from array
+
+**Live Here**  :point_right: [Tic Tac Toe](https://babb2000.github.io/Tic-Tac_Toe/)
