@@ -17,8 +17,9 @@ function IntroController(){
   })
 
   //Contructor to set user marker in an object
-  function Playerassign(marker){ 
+  function Playerassign(marker, name){ 
     this.marker = marker;
+    this.name = name;
   }
 
   const buttonXClick = () =>{
@@ -253,8 +254,7 @@ const compareWinnerCombo = (arr, player)=>{
                           [3,6,9],
                           [4,5,6],
                           [7,8,9], 
-                          [2,5,8],
-]
+                          [2,5,8],]
 
 if(player === "X" && arr.length === 3){
   for(const element of winningCombos){
@@ -272,8 +272,7 @@ if(player === "X" && arr.length === 3){
       console.log(`Player ${player} is the winner!`);
     }
   }
-}
-  else if(player === "X" && arr.length > 3){
+}else if(player === "X" && arr.length > 3){
 
     for(const element of winningCombos){
       let sortedElement = [...element].sort(); //Spread the sorted array into a new array called sortedElement
@@ -300,15 +299,12 @@ if(player === "X" && arr.length === 3){
         console.log(`Player ${player} is the winner`);
       }
     }
-  }
 }
-
-
- if(player === "O" && arr.length === 3){
+if(player === "O" && arr.length === 3){
   for(const element of winningCombos){
     let sortedElement = element.sort();
     let sortedArr = arr.sort();
-    isWinner = true;
+    let isWinner = true;
     for(let i = 0; i < sortedArr.length; i++){
       if(sortedElement[i] != sortedArr[i]){
         isWinner = false;
@@ -320,7 +316,6 @@ if(player === "X" && arr.length === 3){
       console.log(`Player ${player} is the winner!`);
     }
   }
-
 }
 else if(player === "O" && arr.length > 3){
 
@@ -350,6 +345,7 @@ else if(player === "O" && arr.length > 3){
     }
   }
 }
+}
 
 
 
@@ -372,21 +368,11 @@ function lightUpCells(arr){
   const elementwithAttribute3 = document.querySelectorAll(`[data-number="${targetAttribute3}"]`);
   elementwithAttribute3[0].style.backgroundColor = "#BBF9F8";
 
-  setTimeout(addElements,2000);
+  setTimeout(addElements,1000);
 
-  const overlay = document.getElementById('overlay');
-  const playAgainButton = document.getElementById("play-again-button");
+  
 
-  playAgainButton.addEventListener("click", ()=>{
-    overlay.classList.add("hidden"); //Hiden the overlay
-    //Reset game Logic
-    IntroController();
-
-  }) 
-
-
-
-  setTimeout(showGameOverlay, 2000);
+  setTimeout(showGameOverlay, 1000);
 }
 
 
@@ -396,28 +382,52 @@ function addElements(){
   span.setAttribute("id", "overlay");
   span.classList.add("hidden");
 
-  const span2 = document.createElement('span');
-  span2.setAttribute("id", "playAgain");
-
+  const flexSpan = document.createElement("span");
+  flexSpan.style.display = "flex";
+  flexSpan.style.gap = "10px"
+  flexSpan.style.flexDirection = "column";
+  flexSpan.style.justifyContent = "flex-start";
+  flexSpan.style.alignContent = "center";
+  flexSpan.style.alignItems = "center";
+  flexSpan.style.width = "80vw";
+  flexSpan.style.height = "80vh";
 
   const h2 = document.createElement("h2");
   h2.style.textShadow = "1px 1px 4px white";
   const text = document.createTextNode("Game Over!");
   h2.style.fontSize = "100px";
+  h2.appendChild(text);
+
+  const button = document.createElement("button");
+  button.setAttribute("id", "play-again");
+  const text2 = document.createTextNode("Play Again");
+  button.appendChild(text2);
 
   
 
 
-  span.appendChild(span2);
-  span2.appendChild(h2);
-  h2.appendChild(text);
+  span.appendChild(flexSpan);
+  flexSpan.appendChild(h2);
+  flexSpan.appendChild(button);
 
 
   const lowestElement = document.body;
   lowestElement.appendChild(span);
+  
 
 }
 
+const playAgain = ()=>{
+  const overlay = document.getElementById('overlay');
+  const playAgainButton = document.getElementById("play-again-button");
+
+  playAgainButton.addEventListener("click", ()=>{
+    overlay.classList.add("hidden"); //Hide the overlay
+    //Reset game Logic
+    IntroController();
+
+  }) 
+}
 
 function showGameOverlay(){
   overlay.classList.remove("hidden");
