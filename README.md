@@ -6,13 +6,12 @@ During this project, I will be creating a simple Tic-Tac-Toe game that you can p
 
 - [x] *Objects*
 - [x] *Factory Functions*
-- [x] *Module Pattern*
-- [x] *Closure*
-- [x] *This keyword*
+- [ ] *Module Pattern*
+- [ ] *Closure*
+- [ ] *This keyword*
 - [x] *Algorithms*
 - [x] *DOM manipulation*
-- [x] *Prototypal ineritance*
-- [x] *Inheritance with Factories*
+- [ ] *Prototypal ineritance*
 - [x] *Encapsulation*
 
 ### Game Prototype
