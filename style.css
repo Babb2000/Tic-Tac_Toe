@@ -58,12 +58,6 @@ button.X{
 }
 
 
-h1{
- text-shadow: 1px 1px 4px white;
- font-size: 100px;
- text-align: center;
-}
-
 .edit{
  display: none;
  justify-content: center;
@@ -116,3 +110,4 @@ text-align: center;
 .hidden{
 display: none;
 }
+
