@@ -4,19 +4,37 @@ During this project, I will be creating a simple Tic-Tac-Toe game that you can p
 
 ## Topics to be applied
 
-- [ ] *Objects*
-- [ ] *Factory Functions*
-- [ ] *Module Pattern*
-- [ ] *Closure*
-- [ ] *This keyword*
-- [ ] *Algorithms*
-- [ ] *DOM manipulation*
-- [ ] *Prototypal ineritance*
-- [ ] *Inheritance with Factories*
-- [ ] *Encapsulation*
+- [x] *Objects*
+- [x] *Factory Functions*
+- [x] *Module Pattern*
+- [x] *Closure*
+- [x] *This keyword*
+- [x] *Algorithms*
+- [x] *DOM manipulation*
+- [x] *Prototypal ineritance*
+- [x] *Inheritance with Factories*
+- [x] *Encapsulation*
 
 ### Game Prototype
 
 ![Game Board](Images/codePen_mockImage.png)
 [Link to CodePen Rough Draft](https://codepen.io/babb2000/pen/oNQwvje)
 
+## Need More Practice
+- [ ] *Writing decoupled code*
+- [ ] *Modular programming*
+- [ ] *Encapsulation and factory functions*
+- [ ] *Event listeners in javascript / as well as bubbling, capturing, etc*
+- [ ] *CSS selector specificity*
+- [ ] *CSS positioning*
+- [ ] *Flex-Box shorthands / full capabilities*
+- [ ] *Controllers*
+- [ ] *Accessing and manipulating the DOM with nested loops*
+
+# Takeaways
+- Comfortable with working with the javascript array data type
+- Got some practice with factory functions and arrow functions
+- Applied knowledge of forEach method when working with 2D arrays 
+- Utilized the sort method in creating an algorithm for checking for a winner
+- Got introduced to CSS keyframes
+- Used javascripts spread and destructoring assignment when extracting data from array
