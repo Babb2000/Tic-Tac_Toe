@@ -399,6 +399,9 @@ function addElements(){
   h2.appendChild(text);
 
   const button = document.createElement("button");
+  button.style.color = "black";
+  button.style.display = "flex";
+  button.style.justifyContent = "center";
   button.setAttribute("id", "play-again");
   const text2 = document.createTextNode("Play Again");
   button.appendChild(text2);
@@ -413,18 +416,20 @@ function addElements(){
 
   const lowestElement = document.body;
   lowestElement.appendChild(span);
+
+  const overlay = document.getElementById('overlay');
+  const playAgainButton = document.getElementById("play-again");
+
+  playAgain(overlay, playAgainButton);
   
 
 }
 
-const playAgain = ()=>{
-  const overlay = document.getElementById('overlay');
-  const playAgainButton = document.getElementById("play-again-button");
-
+const playAgain = (overlay, playAgainButton)=>{
+  
   playAgainButton.addEventListener("click", ()=>{
     overlay.classList.add("hidden"); //Hide the overlay
-    //Reset game Logic
-    IntroController();
+    location.reload();
 
   }) 
 }
